@@ -1,0 +1,24 @@
+// Override default variables before the import
+$theme-colors: (
+  "project-color-1": #FEE5EB,
+  "project-color-2": #48468C,
+  "project-color-3": #6626FB,
+  "project-color-4": #66A0E8,
+  "project-color-5": #7DFFE5,
+  "project-color-6": #D94141,
+  "project-color-7": #F2E52E,
+  "project-color-8": #F0EFE8
+);
+
+.btn-rounded {
+  border-radius: 50px!important;
+}
+
+.img-fluid{
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';

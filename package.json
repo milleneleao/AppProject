@@ -7,6 +7,10 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.4.1",
+<<<<<<< HEAD
+    "node-sass": "^4.13.1",
+=======
+>>>>>>> e6a4ea8f41ba3db2bfc8f1a1a8552cb2154604b7
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
