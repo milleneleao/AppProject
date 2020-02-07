@@ -19,6 +19,10 @@ $theme-colors: (
   height: auto !important;
 }
 
+.modal-sm {
+  max-width: 30% !important;
+}
+
 
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';

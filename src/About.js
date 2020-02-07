@@ -7,7 +7,7 @@ import AboutData from './Data/about.json';
 class About extends Component {
   render() {
     return (
-      <div >
+      <div className="container-fluid">
         <Header />
         <div id="page-container">
         <div id="content-wrap">
@@ -19,8 +19,8 @@ class About extends Component {
                 <div className="card-body">
                   <h5 className="card-title text-center h4">{item.name}</h5>
                   <p className="card-text text-justify">{item.description}</p>
-                  <p className="card-text text-center">
-                    <p className="h5 pb-1">Contact</p> 
+                  <p className="h5 pb-1  text-center">Contact</p> 
+                  <p className="text-center">
                     <a href={item.url_lin} target="_blank" className="text-center fa fa-linkedin" ></a>
                     <a href={item.url_git}  target="_blank" className="px-3 text-center fa fa-github"> </a>
                     <a href={item.url_mai} className="text-center fa fa-envelope"> </a>
