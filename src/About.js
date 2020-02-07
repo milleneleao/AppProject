@@ -3,7 +3,7 @@ import Header from './components/header';
 import Footer from './components/footer';
 import './css/about.css';
 import AboutData from './Data/about.json';
-
+//create a conmonent that will change the text inside the tag 
 class About extends Component {
   render() {
     return (
@@ -18,13 +18,14 @@ class About extends Component {
                 <img className="mx-auto card-img-top img-fluid p-1" src={item.photo} alt="FotoCollaborator" />
                 <div className="card-body">
                   <h5 className="card-title text-center h4">{item.name}</h5>
+
                   <p className="card-text text-justify">{item.description}</p>
                   <p className="h5 pb-1  text-center">Contact</p> 
                   <p className="text-center">
                     <a href={item.url_lin} target="_blank" className="text-center fa fa-linkedin" ></a>
                     <a href={item.url_git}  target="_blank" className="px-3 text-center fa fa-github"> </a>
                     <a href={item.url_mai} className="text-center fa fa-envelope"> </a>
-                  </p>
+                    </p>
                 </div>
               </div>
             )
