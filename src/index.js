@@ -4,8 +4,23 @@ import About from './About';
 import Welcome from './Welcome';
 import './scss/custom.scss';
 import * as serviceWorker from './serviceWorker';
+import {
+    BrowserRouter,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
-ReactDOM.render(<Welcome />, document.getElementById('welcome'));
+
+
+ReactDOM.render(
+    <BrowserRouter>
+    <Switch>
+        <Route path="/" exact={true} component={Welcome} />
+        <Route path="/about" exact={true} component={About} />
+    </Switch>
+    </BrowserRouter>
+    , document.getElementById('root'));
 //ReactDOM.render(<About />, document.getElementById('about'));
 
 // If you want your app to work offline and load faster, you can change

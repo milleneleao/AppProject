@@ -1,10 +1,10 @@
 import React from 'react';
-
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <nav className="navbar  bg-project-color-2">
-      <img src='./images/logo192.png' className="rounded float-left" alt="Logo" style={{ width: "40px" }} />
+      <Link to="/"><img src='./images/logo192.png' className="rounded float-left" alt="Logo" style={{ width: "40px" }} /></Link>
         
       <div className="float-right pr-3">
       <select className="custom-select mr-2" style={{width: "200px"}}>
