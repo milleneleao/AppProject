@@ -11,6 +11,7 @@ $theme-colors: (
 );
 
 .btn-rounded {
+  //!important means replace for the bootstrap 
   border-radius: 50px!important;
 }
 
