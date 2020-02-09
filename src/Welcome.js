@@ -7,9 +7,9 @@ import './css/welcome.css';
 class Welcome extends Component {
     render() {
       return (
-        <div>
+        <div className="container-fluid">
           <Header />
-          <div id="page-container" className="ontainer-lg">
+          <div id="page-container" >
             <div className="row">
               <div className="col col-lg-12">
                 <img src="./images/coverC.jpg" className="img-fluid" alt="Responsive image"/>
@@ -22,9 +22,9 @@ class Welcome extends Component {
             </div>
             <div className="row">
               <div className="col col-lg-6">
-                <img src="./images/coverC.jpg" className="img-fluid p-5" alt="Responsive image"/>
+                <img src="./images/coverC.jpg" className="img-fluid" alt="Responsive image"/>
               </div>
-              <div className="col col-lg-6 p-3">
+              <div className="col col-lg-6 pt-5">
                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
               </div>
             </div>

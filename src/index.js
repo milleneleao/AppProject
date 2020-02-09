@@ -15,15 +15,4 @@ ReactDOM.render(
         </Switch>
     </BrowserRouter>
     , document.getElementById('root'));
-//
-
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import Welcome from './Welcome';
-// import './scss/custom.scss';
-// import * as serviceWorker from './serviceWorker';
-
-
-
-// ReactDOM.render(<Welcome />, document.getElementById('root'));
 serviceWorker.unregister();

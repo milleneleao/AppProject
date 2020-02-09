@@ -1,44 +1,20 @@
 import React from 'react';
-
-import {
-  BrowserRouter as Router,
-  Link
-} from "react-router-dom";
-
+import ReactDOM from 'react-dom';
+import { Link } from "react-router-dom";
 import '../scss/custom.scss';
 
 export default function Footer() {
   return (
-    <div className=" bg-light" style={{position: "absolute", bottom: "0",width: "100%",height: "2.5rem"}}>
-    <div className="row  pt-2">
-      <div className="col-3 ">
-        <Link to="/about" className="pr-5">About</Link>
-        <Link to="/project">About the Project</Link>
-      </div>
-      <div className="col-6 text-right ">
-        <p className="text-project-color-2 pr-5">&copy;2020 - Group2.</p>
+    <div className=" bg-light" style={{ position: "absolute", bottom: "0", width: "100%", height: "2.5rem" }}>
+      <div className="row  pt-2">
+        <div className="col-3 ">
+          <Link to="/about" className="pr-5">About</Link>
+          <Link to="/project">About the Project</Link>
+        </div>
+        <div className="col-6 text-right ">
+          <p className="text-project-color-2 pr-5">&copy;2020 - Group2.</p>
+        </div>
       </div>
     </div>
-      </div>
   );
 }
-
-//export default Footer;
-// function Footer() {
-//   return (
-//     <div className=" bg-light" style={{position: "absolute", bottom: "0",width: "100%",height: "2.5rem"}}>
-//       <div className="row  pt-2">
-//         <div className="col-6 ">
-    
-//           <a href="www.google.com" className="text-project-color-2 pl-5">About Project</a>
-//         </div>
-//         <div className="col-6 text-right ">
-//           <p className="text-project-color-2 pr-5">&copy;2020 - Group2.</p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-
-
