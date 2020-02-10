@@ -17,9 +17,9 @@ counterpart.setLocale('en');
 class Welcome extends Component {
     render() {
       return (
-        <div className="container-fluid">
-          <Header />
-          <div id="page-container" >
+        <div >
+          <div className="container-fluid" id="page-container" >
+            <Header />
             <div className="row">
               <div className="col col-lg-12">
                 <img src="./images/coverC.jpg" className="img-fluid" alt="Responsive image"/>

@@ -6,11 +6,11 @@ import counterpart from 'counterpart';
 import Translate from 'react-translate-component';
 import en from './components/languages/en';
 import uk from './components/languages/uk';
-
+import br from './components/languages/br';
 
 counterpart.registerTranslations('en', en);
 counterpart.registerTranslations('uk', uk);
-
+counterpart.registerTranslations('br', br);
 counterpart.setLocale('en');
 
 //create a conmonent that will change the text inside the tag 
