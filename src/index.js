@@ -1,19 +1,13 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-<<<<<<< HEAD
-=======
 import About from './About';
 import AboutProject from './AboutProject';
->>>>>>> bde29e7925222f5eaa9f2565c9d7990984646262
 import Welcome from './Welcome';
 import Login from './Login'; 
 import Register from './Register';
+import Profile from './Profile'
 import './scss/custom.scss';
-<<<<<<< HEAD
-import * as serviceWorker from './serviceWorker';
-=======
->>>>>>> 9de7600ce8ca5f78bcc04b1f00345a37da103e12
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 ReactDOM.render(
@@ -24,6 +18,7 @@ ReactDOM.render(
             <Route path="/login" component={Login} />
             <Route path="/aboutproject" exact={true} component={AboutProject} />
             <Route path="/register" component={Register} />
+            <Route path="/profile" component={Profile} />
         </Switch>
     </BrowserRouter>
     , document.getElementById('root'));

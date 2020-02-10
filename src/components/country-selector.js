@@ -1,34 +1,32 @@
 import React, { Component } from 'react';
-import { CountryDropdown, RegionDropdown} from 'react-country-region-selector';
+import Select from 'react-select'
+import countryList from 'react-select-country-list'
 
 
 class CountrySelector extends Component {
-  constructor (props) {
-    super(props);
-    this.state = { country: '', region: '' };
+  constructor(props) {
+    super(props)
+ 
+    this.options = countryList().getData()
+ 
+    this.state = {
+      options: this.options,
+      value: null,
+    }
   }
 
-  selectCountry (val) {
-    this.setState({ country: val });
-  }
- 
-  selectRegion (val) {
-    this.setState({ region: val });
+  changeHandler = value => {
+    this.setState({ value })
   }
   
-  render () {
-    const { country, region } = this.state;
+  render() {
     return (
-      <div>
-        <CountryDropdown
-          value={country}
-          onChange={(val) => this.selectCountry(val)} />
-        <RegionDropdown
-          country={country}
-          value={region}
-          onChange={(val) => this.selectRegion(val)} />
-      </div>
-    );
+      <Select
+        options={this.state.options}
+        value={this.state.value}
+        onChange={this.changeHandler}
+      />
+    )
   }
 }
 

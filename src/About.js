@@ -23,15 +23,15 @@ class About extends Component {
         <div id="content-wrap">
         <div className="card-group m-auto pt-5 px-3">
               <div className="card pt-2 border-0">
-                <img className="mx-auto card-img-top img-fluid p-1" src="./images/Brennan.png" alt="FotoCollaborator" />
+                <img className="mx-auto card-img-top img-fluid p-1" src="./images/Brennan.jpg" alt="Brennan Robinson" />
                 <div className="card-body">
                     <Translate content="nameB" component="h5" className="card-title text-center h4"/>
                     <Translate content="decriptionB" component="p" className="card-text text-justify"/>
                     <Translate content="contact" component="p" className="h5 pb-1 text-center"/>
                     <p  className="h5 pb-1 text-center">
-                    <a href="https://www.linkedin.com/in/millene-leao/" target="_blank" className="text-center fa fa-linkedin" ></a>
+                    <a href="https://www.linkedin.com/in/brennan-robinson-5724bb1a1/" target="_blank" className="text-center fa fa-linkedin" ></a>
                     <a href="https://github.com/brennan-robinson"  target="_blank" className="px-3 text-center fa fa-github"> </a>
-                    <a href="mailto: b_robinson61807@fanshaweonline.ca" className="text-center fa fa-envelope"> </a>
+                    <a href="mailto: brennanlemon@gmail.com" className="text-center fa fa-envelope"> </a>
                     </p>
                 </div>
               </div>
