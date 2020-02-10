@@ -87,7 +87,7 @@ class Login extends Component {
           this.setState({
             logged: true
           })
-          this.props.history.push("/",);
+          this.props.history.push("/Profile",);
         } else {
           console.log(responseJson.message);
         }

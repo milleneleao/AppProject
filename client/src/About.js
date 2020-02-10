@@ -23,11 +23,7 @@ class About extends Component {
         <div id="content-wrap">
         <div className="card-group m-auto pt-5 px-3">
               <div className="card pt-2 border-0">
-<<<<<<< HEAD:src/About.js
                 <img className="mx-auto card-img-top img-fluid p-1" src="./images/Brennan.jpg" alt="Brennan Robinson" />
-=======
-                <img className="mx-auto card-img-top img-fluid p-1" src="./images/Brennan.jpg" alt="FotoCollaborator" />
->>>>>>> 73b68d450f99bab57cd382ec13f2787eba16b597:client/src/About.js
                 <div className="card-body">
                     <Translate content="nameB" component="h5" className="card-title text-center h4"/>
                     <Translate content="decriptionB" component="p" className="card-text text-justify"/>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/header';
 import Footer from './components/footer';
 import './css/about.css';
-import AboutData from './Data/aboutproject.json';
+import AboutData from './data/aboutproject.json';
 
 class AboutProject extends Component {
     render() {
