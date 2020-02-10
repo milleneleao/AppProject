@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from './components/header';
-//import Footer from './components/footer';
-import { CountryDropdown } from 'react-country-region-selector';
+import Footer from './components/footer';
 import TimezonePicker from 'react-timezone';
+import CountrySelector from './components/country-selector';
 
 class Profile extends React.Component{
   render() {
@@ -20,14 +20,11 @@ class Profile extends React.Component{
         <form>
             Kids Name: <input type="text"></input><br></br>
             Parent/Guardian Name:<input type="text"></input><br></br>
-            From:<CountryDropdown /><br></br>
-            Living In:<CountryDropdown /><br></br> 
+            From:<CountrySelector /><br></br>
+            Living In:<CountrySelector /><br></br> 
             Timezone: <TimezonePicker />
-        <div id="languages">
-            Native Language:<br></br>
-            Languages you want to learn:<br></br>
-        </div>
-        </form>   
+        </form>  
+        <Footer /> 
         </div>
     )
   }

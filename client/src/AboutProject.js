@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/header';
 import Footer from './components/footer';
 import './css/about.css';
-import AboutData from './data/aboutproject.json';
+import AboutData from './Data/aboutproject.json';
 
 class AboutProject extends Component {
     render() {
@@ -21,14 +21,10 @@ class AboutProject extends Component {
             )
         })} 
          </div>   
-         </div>
-         
+         </div> 
         </div>
-        
         <Footer />
         </div>
-        
-        
       )
     }
   }
