@@ -11,7 +11,7 @@ function Footer() {
       <div className="row  pt-2">
         <div className="col-3 ">
         <Link to="/about" className="p-5">About</Link>
-        <Link to="#" >About the project</Link>
+        <Link to="/aboutproject" >About the project</Link>
         </div>
         <div className="col-6 text-right ">
           <p className="text-project-color-2 pr-5">&copy;2020 - Group2.</p>

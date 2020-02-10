@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import About from './About';
 import About from './About';
+import AboutProject from './AboutProject';
 import Welcome from './Welcome';
 import './scss/custom.scss';
 import * as serviceWorker from './serviceWorker';
@@ -19,6 +19,7 @@ ReactDOM.render(
     <Switch>
         <Route path="/" exact={true} component={Welcome} />
         <Route path="/about" exact={true} component={About} />
+        <Route path="/aboutproject" exact={true} component={AboutProject} />
     </Switch>
     </BrowserRouter>
     , document.getElementById('root'));

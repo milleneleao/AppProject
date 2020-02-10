@@ -1,0 +1,32 @@
+[
+    {
+      "id": "0",
+      "photo": "./img/react.png",
+      "name": "React"
+    },
+    {
+      "id": "1",
+      "photo": "./img/bootstrap.png",
+      "name": "Bootstrap"
+    },
+    {
+      "id": "2",
+      "photo": "./img/sass.png",
+      "name": "Sass"
+    },
+    {
+        "id": "3",
+        "photo": "./img/aws.png",
+        "name": "Amazon Web Services"
+      },
+      {
+        "id": "4",
+        "photo": "./img/node.png",
+        "name": "Node.js"
+      },
+      {
+        "id": "5",
+        "photo": "./img/postgre.png",
+        "name": "PostGreSQL"
+      }
+  ]
