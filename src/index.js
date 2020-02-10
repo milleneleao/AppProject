@@ -5,8 +5,6 @@ import About from './About';
 import AboutProject from './AboutProject';
 import Welcome from './Welcome';
 import './scss/custom.scss';
-import Welcome from './Welcome';
-import About from './About';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 

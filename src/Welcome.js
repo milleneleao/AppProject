@@ -54,8 +54,8 @@ class Welcome extends Component {
             </div>
             <div className="row">
             <div className="col col-lg-6 text-center mt-5" id="dis_text">
-                <Translate content="headerSixTwo" component="h6" />
-                <Translate content="stepTwo" component="p" />
+                <Translate content="headerSixTwo" component="h6" style={{ marginRight: "60px"}}/>
+                <Translate content="stepTwo" component="p" style={{ marginRight: "60px"}} />
             </div>
               <div className="col col-lg-6">
                 <img src="./images/dis_1.jpg" className="img-fluid " id="dis_imgr" alt="Responsive image"/>

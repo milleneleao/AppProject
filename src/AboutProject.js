@@ -10,23 +10,24 @@ class AboutProject extends Component {
           <div>
           <Header />
           <div>
+          <div className="container" >
+            <div className="row" style={{ marginLeft: "120px"}}>
             {AboutData.map((item, index) => {
                 return (
-            <div className="container" key={item.id}>
-            <div className="row">
-                <div className="col-3">
-                    <img src={item.photo} className="mx-auto img-fluid p-1" alt="..." />
-                    <h5 className="text-center">{item.name}</h5>
+                <div className="col-4" key={item.id}>
+                    <img src={item.photo} className="mx-auto img-fluid m-5 pr-5" style={{ width: "200px", height: "200px" }} alt="..." />
+                    <h5 className="text-center  pr-5" style={{ marginRight: "95px" }}>{item.name}</h5>
                 </div>
-            </div>   
-            </div>
             )
         })} 
-         
+         </div>   
+         </div>
          
         </div>
+        
         <Footer />
         </div>
+        
         
       )
     }
