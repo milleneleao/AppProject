@@ -12,6 +12,9 @@
     "react-bootstrap": "^1.0.0-beta.16",
     "react-country-region-selector": "^1.4.7",
     "react-dom": "^16.12.0",
+    "react-facebook-login": "^4.1.1",
+    "react-google-login": "^5.1.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "react-select-country-list": "^2.1.2"
   },
@@ -19,7 +22,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "client": "cd client && npm start",
+    "server": "node server.js"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/header';
 import Footer from './components/footer';
 import './css/about.css';
-import AboutData from './Data/about.json';
+import AboutData from './data/about.json';
 //create a conmonent that will change the text inside the tag 
 class About extends Component {
   render() {

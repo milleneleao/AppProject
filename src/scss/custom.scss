@@ -24,6 +24,15 @@ $theme-colors: (
   max-width: 30% !important;
 }
 
+// Class
+.visible {
+  visibility: visible !important;
+}
+.invisible {
+  visibility: hidden !important;
+}
+
+
 
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
