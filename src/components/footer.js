@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from "react-router-dom";
-
 import '../scss/custom.scss';
-import * as serviceWorker from '../serviceWorker';
 
-function Footer() {
+export default function Footer() {
   return (
-    <div className=" bg-light" style={{position: "absolute", bottom: "0",width: "100%",height: "4.5rem"}}>
+    <div className=" bg-light" style={{ position: "absolute", bottom: "0", width: "100%", height: "2.5rem" }}>
       <div className="row  pt-2">
         <div className="col-3 ">
         <Link to="/about" className="p-5">About</Link>
@@ -20,6 +18,3 @@ function Footer() {
     </div>
   );
 }
-
-export default Footer;
-

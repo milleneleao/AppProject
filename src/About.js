@@ -17,7 +17,7 @@ counterpart.setLocale('en');
 class About extends Component {
   render() {
     return (
-      <div >
+      <div className="container-fluid">
         <Header />
         <div id="page-container">
         <div id="content-wrap">
