@@ -29,6 +29,7 @@ router.post('/login', (req, res, next) => {
     });
   }
   else {
+  
     const handler = (err, result) => {
       if (!err && result.rowCount !== 0 && bcrypt.compareSync(password, result.rows[0].userpassword)) {
         let tokenData = {

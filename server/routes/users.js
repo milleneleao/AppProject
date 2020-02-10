@@ -5,6 +5,18 @@ const config = require('../config');
 var bcrypt = require('bcrypt');
 
 router.post('/register', function (req, res, next) {
+  // let findUser = false;
+  // const handler = (err, result) => {
+  //   if (!err && result.rowCount == 0 ) {
+  //     findUser = false;
+  //   } else {
+  //     findUser = true;
+  //   }
+  // }
+  // db.findUser([email], handler);
+
+  
+
   const {username, email, password} = req.body.userData; 
   const hash = bcrypt.hashSync(password, config.SALT_ROUNDS);
   const values = [username,email, hash];

@@ -5,7 +5,7 @@ import About from './About';
 import AboutProject from './AboutProject';
 import Welcome from './Welcome';
 import Login from './Login'; 
-import Register from './Register';
+import Register from './Register';import Profile from './Profile';
 import './scss/custom.scss';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
@@ -17,6 +17,7 @@ ReactDOM.render(
             <Route path="/login" component={Login} />
             <Route path="/aboutproject" exact={true} component={AboutProject} />
             <Route path="/register" component={Register} />
+
         </Switch>
     </BrowserRouter>
     , document.getElementById('root'));
