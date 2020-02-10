@@ -12,13 +12,10 @@
     "react-bootstrap": "^1.0.0-beta.16",
     "react-country-region-selector": "^1.4.7",
     "react-dom": "^16.12.0",
-<<<<<<< HEAD
-    "react-scripts": "3.3.0",
-    "react-select-country-list": "^2.1.2"
-=======
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.0"
->>>>>>> 6f162f1bc07b1b9814eb828e9f14759948060ba1
+    "react-scripts": "3.3.0",
+    "react-select-country-list": "^2.1.2",
+    "react-timezone": "^2.4.0"
   },
   "scripts": {
     "start": "react-scripts start",

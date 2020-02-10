@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import About from './About';
-import About from './About';
 import Welcome from './Welcome';
 import './scss/custom.scss';
 import * as serviceWorker from './serviceWorker';

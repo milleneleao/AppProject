@@ -65,7 +65,7 @@ class Welcome extends Component {
                 <img src="./images/canva.jpg" className="img-fluid mt-5" alt="Responsive image"/>
               </div>
               </div>
-          <Footer />
+          {/* <Footer /> */}
           </div>
         </div>
         
