@@ -13,14 +13,38 @@
     "react-bootstrap": "^1.0.0-beta.16",
     "react-country-region-selector": "^1.4.7",
     "react-dom": "^16.12.0",
+<<<<<<< HEAD
+    "react-facebook-login": "^4.1.1",
+    "react-google-login": "^5.1.0",
+    "react-interpolate-component": "^0.12.0",
+=======
+<<<<<<< HEAD:package.json
+    "react-dropdown": "^1.6.4",
     "react-facebook-login": "^4.1.1",
     "react-google-login": "^5.1.0",
     "react-interpolate-component": "^0.12.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
+    "react-select": "^3.0.8",
     "react-select-country-list": "^2.1.2",
     "react-timezone": "^2.4.0",
+    "react-timezone-picker": "^1.0.8",
+    "react-translate-component": "^0.15.1",
+    "select-timezone-material-ui": "^2.2.0"
+=======
+>>>>>>> ad718078d1fc7805cdc7adb934c459d90dd32880
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.3.0",
+    "react-select-country-list": "^2.1.2",
+    "react-timezone": "^2.4.0",
+<<<<<<< HEAD
     "react-translate-component": "^0.15.1"
+=======
+    "react-facebook-login": "^4.1.1",
+    "react-google-login": "^5.1.0",
+    "react-interpolate-component": "^0.12.0"
+>>>>>>> 73b68d450f99bab57cd382ec13f2787eba16b597:client/package.json
+>>>>>>> ad718078d1fc7805cdc7adb934c459d90dd32880
   },
   "scripts": {
     "start": "react-scripts start",
