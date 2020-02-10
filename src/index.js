@@ -1,19 +1,12 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-<<<<<<< HEAD
-=======
 import About from './About';
 import AboutProject from './AboutProject';
->>>>>>> bde29e7925222f5eaa9f2565c9d7990984646262
 import Welcome from './Welcome';
 import Login from './Login'; 
 import Register from './Register';
 import './scss/custom.scss';
-<<<<<<< HEAD
-import * as serviceWorker from './serviceWorker';
-=======
->>>>>>> 9de7600ce8ca5f78bcc04b1f00345a37da103e12
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 ReactDOM.render(

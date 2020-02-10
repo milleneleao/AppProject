@@ -23,7 +23,7 @@ class About extends Component {
         <div id="content-wrap">
         <div className="card-group m-auto pt-5 px-3">
               <div className="card pt-2 border-0">
-                <img className="mx-auto card-img-top img-fluid p-1" src="./images/Brennan.png" alt="FotoCollaborator" />
+                <img className="mx-auto card-img-top img-fluid p-1" src="./images/Brennan.jpg" alt="FotoCollaborator" />
                 <div className="card-body">
                     <Translate content="nameB" component="h5" className="card-title text-center h4"/>
                     <Translate content="decriptionB" component="p" className="card-text text-justify"/>
