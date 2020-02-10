@@ -3,10 +3,10 @@ const config = {};
 config.JWT_KEY = 'devdeck101_jwt_secret';
 config.SALT_ROUNDS = 13;
 
-config.USER =  'postgres';
+config.USER =  'postgrces';
 config.HOST = 'localhost';
 config.DB   = 'AppProject';
-config.PSW  = 'masterkey';
+config.PSW  = 'Test123!';
 config.PORT = 5432;
 
 module.exports = config;
