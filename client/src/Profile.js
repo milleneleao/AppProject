@@ -11,10 +11,11 @@ class Profile extends React.Component{
     return (
         <div >
             <Header />
+            <h1>Edit Profile</h1>
             <div class="card" id="profilePhoto">
                 <img class="rounded-circle" src="public/img/profilePlaceholder.png" alt="" />
                 <div class="card-body">
-                   <h2>Edit Profile Photo</h2><p class="card-text">Your profile photo must be less than 2MB.</p>
+                   <h3>Edit Profile Photo</h3><p class="card-text">Your profile photo must be less than 2MB.</p>
                 </div>
             </div>
         
