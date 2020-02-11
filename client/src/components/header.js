@@ -32,7 +32,7 @@ class Header extends Component {
           <select className="custom-select mr-2" style={{ width: "200px" }} value={this.state.lang} onChange={this.onLangChange}>
             <option value="en">English</option>
             <option value="uk">Ukrainian</option>
-            <option value="br" >Portugese</option>
+            <option value="br" >Portuguese</option>
           </select>
           {/* <button type="button" className="btn btn-outline-project-color-1 mr-2 btn-rounded">LOG IN</button>
           <button type="button" className="btn btn-outline-project-color-1  btn-rounded">SIGN UP</button>*/}
