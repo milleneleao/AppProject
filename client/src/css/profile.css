@@ -1,0 +1,24 @@
+#profilePhoto{
+    padding-left: 100px;
+}
+
+.text{
+    padding-left:20%;
+    display: inline-flex;
+    padding-top: 1%;
+}
+
+.textBox{
+    margin-left:20px;
+    display:inline-block;
+}
+
+.textBox1{
+    margin-left:105px;
+    display:inline-block;
+}
+
+.dropdown{
+    padding-left:20%;
+    margin-right:40%;
+}
