@@ -2,9 +2,10 @@ import React from 'react';
 import Header from './components/header';
 import Footer from './components/footer';
 import './css/profile.css';
-import TimezonePicker from 'react-timezone';
+// import TimezonePicker from 'react-timezone';
 import CountrySelector from './components/country-selector';
 import LanguageSelector from './components/language-selector';
+import TimezoneSelector from './components/timezone-selector';
 
 class Profile extends React.Component{
   render() {
@@ -24,12 +25,10 @@ class Profile extends React.Component{
             <p class="text">Parent/Guardian Name:<input type="text" class="textBox"></input></p><br></br>
             <p class="dropdown">From:<CountrySelector /></p><br></br>
             <p class="dropdown">Living In:<CountrySelector /></p><br></br> 
-            <p class="dropdown">Timezone: <TimezonePicker /></p><br></br>
+            <p class="dropdown">Timezone: <TimezoneSelector /></p><br></br>
             <p class="dropdown">Native Language: <LanguageSelector /></p><br></br>
             <p class="dropdown">Language you want to Learn: <LanguageSelector /></p><br></br>
-
         </form>
-
         <Footer /> 
         </div>
     )
