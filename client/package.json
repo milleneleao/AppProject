@@ -11,6 +11,7 @@
     "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
+    "react-bootstrap-timezone-picker": "^2.0.0",
     "react-country-region-selector": "^1.4.7",
     "react-dom": "^16.12.0",
     "react-dropdown": "^1.6.4",
