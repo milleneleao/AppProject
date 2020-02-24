@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import counterpart from 'counterpart';
 import Translate from 'react-translate-component';
-import en from '../components/languages/en';
-import uk from '../components/languages/uk';
+import en from './languages/en';
+import uk from './languages/uk';
+import br from './languages/br';
 
 counterpart.registerTranslations('en', en);
 counterpart.registerTranslations('uk', uk);
-
-counterpart.setLocale('en');
+counterpart.registerTranslations('br', br);
 
 
 class Header extends Component {
 
   state = {
-    lang: 'en'
+    lang: counterpart.getLocale()
   }
 
   onLangChange = (e) => {
@@ -37,9 +37,9 @@ class Header extends Component {
           {/* <button type="button" className="btn btn-outline-project-color-1 mr-2 btn-rounded">LOG IN</button>
           <button type="button" className="btn btn-outline-project-color-1  btn-rounded">SIGN UP</button>*/}
           <Link to="/login" style={{ textDecoration: 'none' }} className={`${this.props.displayLogin}`}>  <button visible='false' type="button" className="btn btn-outline-project-color-1 mr-2 btn-rounded"
-          >LOG IN</button></Link>
+          ><Translate content="login" /></button></Link>
           <Link to="/register" style={{ textDecoration: 'none' }} className={`${this.props.displaySING}`}>  <button visible='false' type="button" className="btn btn-outline-project-color-1 mr-2 btn-rounded"
-          >SIGN UP</button></Link>
+          ><Translate content="signup" /></button></Link>
 
         </div>
       </nav>

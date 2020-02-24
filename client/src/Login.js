@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import Header from './components/header';
-import { Link, withRouter } from "react-router-dom";
+import counterpart from 'counterpart';
+import Translate, { translate } from 'react-translate-component';
+import en from './components/languages/en';
+import uk from './components/languages/uk';
+import br from './components/languages/br';
 // import FacebookLogin from 'react-facebook-login';
 // import GoogleLogin from 'react-google-login';
+
+counterpart.registerTranslations('en', en);
+counterpart.registerTranslations('uk', uk);
+counterpart.registerTranslations('br', br);
+
 
 class Login extends Component {
 
@@ -15,13 +24,16 @@ class Login extends Component {
     this.state = {
       email: undefined,
       password: undefined,
-      logged: false,
-      error: undefined
+      success: undefined,
+      message: undefined,
+      code: undefined,
+      mailVisible: 'invisible',
+      passvisible: 'invisible',
+      alertVisible: 'invisible'
+
     }
 
   }
-
-
 
   componentDidMount() {
     this.verifytoken();
@@ -34,7 +46,7 @@ class Login extends Component {
       this.setState({
         error: 'No token defined. Please Login.'
       })
-      return 
+      return
     }
 
 
@@ -49,18 +61,17 @@ class Login extends Component {
       .then(responseJson => {
         if (responseJson.success) {
           this.setState({
-            logged: responseJson.success,
-            error: undefined
+            ...this.state,
+            success: responseJson.success,
+            message: undefined
           })
         } else {
           this.setState({
-            error: responseJson.error.message
+            message: responseJson.error.message
           })
         }
       }).catch(err => console.log('Error ', err));
   }
-
-
 
   static displayname = "Login";
 
@@ -85,11 +96,71 @@ class Login extends Component {
         if (responseJson.success) {
           localStorage.setItem('DD101_TOKEN', responseJson.token);
           this.setState({
-            logged: true
+            success: true,
+            mailVisible: 'invisible',
+            passvisible: 'invisible',
+            alertVisible: 'invisible'
           })
-          this.props.history.push("/Profile",);
+          this.props.history.push("/Profile");
         } else {
-          console.log(responseJson.message);
+          this.setState({
+            success: false,
+            code: responseJson.code
+          })
+          console.log(this.state.code);
+          switch (this.state.code) {
+            case 'DD101_API_ERROR_01':
+              this.setState({
+                mailVisible: 'visible',
+                passvisible: 'visible',
+                alertVisible: 'invisible',
+                message: 'err_01'
+              })
+              break;
+            case 'DD101_API_ERROR_02':
+              this.setState({
+                mailVisible: 'visible',
+                passvisible: 'invisible',
+                alertVisible: 'invisible',
+                message: 'err_01'
+              })
+              break;
+            case 'DD101_API_ERROR_03':
+              this.setState({
+                mailVisible: 'invisible',
+                passvisible: 'visible',
+                alertVisible: 'invisible',
+                message: 'err_01'
+              })
+              break;
+            case 'DD101_API_ERROR_04':
+              this.setState({
+                mailVisible: 'invisible',
+                passvisible: 'invisible',
+                alertVisible: 'visible',
+                message: responseJson.message
+              })
+              break;
+            case 'DD101_API_ERROR_05':
+              this.setState({
+                mailVisible: 'invisible',
+                passvisible: 'invisible',
+                alertVisible: 'visible',
+                message: 'err_02'
+              })
+ 
+              break;
+            case 'DD101_API_ERROR_06':
+              this.setState({
+                mailVisible: 'invisible',
+                passvisible: 'invisible',
+                alertVisible: 'visible',
+                message: 'err_03'
+              })
+              break;
+            default:
+            // code block
+          }
         }
       }).catch(err => console.log('Error ', err));
   }
@@ -107,36 +178,43 @@ class Login extends Component {
   }
 
   render() {
-    const responseFacebook = (response) => {
-      console.log(response);
-    }
+    // const responseFacebook = (response) => {
+    //   console.log(response);
+    // }
 
-    const responseGoogle = (response) => {
-      console.log(response);
-    }
+    // const responseGoogle = (response) => {
+    //   console.log(response);
+    // }
     return (
-      <div className="container-fluid" id="page-container" >
+      <div className="container-fluid" >
         <Header displayLogin={"d-none"} />
-        <div className="row m-5">
-          <div className="col col-lg-12 mt-5">
-            <div className="jumbotron jumbotron-fluid bg-white" style={{ background: "transparent !important" }}>
-              <div className="container">
-                <div className="row">
-                  <div className="col-6  m-auto">  <img src="./images/coverC.jpg" className="img-fluid" alt="Responsive image" /></div>
-                  <div className="col-6 m-auto">
-                    <form className="form-inside-input p-5" onSubmit={this.handleSubmit} noValidate>
-                      <input type="email" onChange={this.hadleEmailChange} className="form-control  mb-3" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter email" required />
-                      <input type="password" onChange={this.hadlePasswordChange} className="form-control  mb-3" id="exampleInputPassword1" placeholder="Password" required />
-                      <div className="d-flex mb-3">
-                        <div className="form-check">
-                          <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                          <label className="form-check-label" htmlFor="exampleCheck1">Keep me logged in</label>
+        <div className="container">
+          <div className="row">
+            <div className="col col-lg-12 mt-5">
+              <div className="jumbotron jumbotron-fluid bg-white" style={{ background: "transparent !important" }}>
+                <div className="container">
+                  <div className="row">
+                    <div className="col-6  m-auto ">  <img src="./images/coverC.jpg" className="img-fluid" alt="children read" /></div>
+                    <div className="col-6 m-auto">
+                      <form className="form-inside-input" onSubmit={this.handleSubmit} noValidate>
+                        <div className={`alert alert-danger ${this.state.alertVisible}`} role="alert">
+                        <Translate content={`${this.state.message}`}/>
                         </div>
-                        <div className="ml-auto"><a href="#" className="pl-5">Forgot password?</a></div>
+                        <Translate component="input" type="email" onChange={this.hadleEmailChange} id="exampleInputEmail" className="form-control" attributes={{ placeholder: "email_address" }} aria-describedby="emailHelp" required />
+                        <div className={`text-danger ${this.state.mailVisible}  mb-2`}><Translate content={`${this.state.message}`}/></div>
+                        <Translate component="input" type="password" onChange={this.hadlePasswordChange} id="exampleInputPassword1" className="form-control" attributes={{ placeholder: "password" }} aria-describedby="emailHelp" required />
+                        <div className={`text-danger ${this.state.passvisible} mb-2`}> <Translate content={`${this.state.message}`}/></div>
+                        {/* <div className="d-flex mb-3">
+                         <div className="form-check">
+                            <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                            <label className="form-check-label" htmlFor="exampleCheck1"><Translate content="textName"/></label>
+                          </div>
+                          <div className="ml-auto"><a href="#" className="pl-5"><Translate content="textpass"/></a></div>
+                        </div>*/}
+                        <button type="submit" className="btn btn-project-color-6  btn-lg btn-block btn-rounded" data-dismiss="modal"><Translate content="btnLogin" /></button>
+                      </form>
+                      <div>
                       </div>
-                      <button type="submit" className="btn btn-project-color-6  btn-lg btn-block btn-rounded" data-dismiss="modal">LOG IN</button>
-                    </form>
-                    <div>
                     </div>
                   </div>
                 </div>
@@ -144,6 +222,7 @@ class Login extends Component {
             </div>
           </div>
         </div>
+
       </div>
 
     )

@@ -21,7 +21,7 @@ module.exports = {
   },
   findUser: (values, handler) => {
     pool.query(`SELECT * FROM users WHERE usermail = $1`, values, (err, result) => {
-    handler(err, result);
-})
+      handler(err, result);
+    })
   }
 }
