@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/header';
 import Footer from './components/footer';
 import './css/about.css';
-import AboutData from './Data/aboutproject.json';
+import AboutData from './data/aboutproject.json';
 
 class AboutProject extends Component {
     render() {
@@ -16,7 +16,7 @@ class AboutProject extends Component {
                 return (
                 <div className="col-4" key={item.id}>
                     <img src={item.photo} className="mx-auto img-fluid m-5 pr-5" style={{ width: "200px", height: "200px" }} alt="..." />
-                    <h5 className="text-center  pr-5" style={{ marginRight: "95px" }}>{item.name}</h5>
+                    <h5 className="text-center mx-auto pr-5" style={{ marginRight: "95px" }}>{item.name}</h5>
                 </div>
             )
         })} 
