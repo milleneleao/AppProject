@@ -1,7 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Link } from "react-router-dom";
-import '../scss/custom.scss';
+import counterpart from 'counterpart';
+import Translate from 'react-translate-component';
+import en from './languages/en';
+import uk from './languages/uk';
+import br from './languages/br';
+
+counterpart.registerTranslations('en', en);
+counterpart.registerTranslations('uk', uk);
+counterpart.registerTranslations('br', br);
+
 
 export default function Footer() {
   return (
@@ -10,7 +18,6 @@ export default function Footer() {
         <div className="col-3 ">
         <Link to="/about" className="p-5">About</Link>
         <Link to="/aboutproject" >About the project</Link>
-        <Link to="/aboutcourse" >About the course</Link>
         </div>
         <div className="col-6 text-right ">
           <p className="text-project-color-2 pr-5">&copy;2020 - Group2.</p>

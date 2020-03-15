@@ -5,16 +5,16 @@ import './css/about.css';
 import AboutData from './data/aboutproject.json';
 
 class AboutProject extends Component {
-    render() {
-      return (
-          <div>
-          <Header />
-          <div>
-          <div className="container" >
-            <div className="row" style={{ marginLeft: "120px"}}>
-            {AboutData.map((item, index) => {
+  render() {
+    return (
+      <div>
+      <div className="container-fluid">
+        <Header />
+          <div id="content" >
+            <div className="row text-center">
+              {AboutData.map((item, index) => {
                 return (
-                <div className="col-4" key={item.id}>
+                  <div className="col-4" key={item.id}>
                     <img src={item.photo} className="mx-auto img-fluid m-5 pr-5" style={{ width: "200px", height: "200px" }} alt="..." />
                     <h5 className="text-center mx-auto pr-5" style={{ marginRight: "95px" }}>{item.name}</h5>
                 </div>
@@ -25,8 +25,9 @@ class AboutProject extends Component {
         </div>
         <Footer />
         </div>
-      )
-    }
+
+    )
   }
-  
-  export default AboutProject;
+}
+
+export default AboutProject;

@@ -1,40 +1,57 @@
 import React, { Component } from 'react';
 import Header from './components/header';
+import counterpart from 'counterpart';
+import Translate from 'react-translate-component';
+import en from './components/languages/en';
+import uk from './components/languages/uk';
+import br from './components/languages/br';
 // import FacebookLogin from 'react-facebook-login';
 // import GoogleLogin from 'react-google-login';
+
+counterpart.registerTranslations('en', en);
+counterpart.registerTranslations('uk', uk);
+counterpart.registerTranslations('br', br);
+
 
 class Register extends Component {
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.hadleEmailChange = this.hadleEmailChange.bind(this);
+    this.hadlePasswordChange = this.hadlePasswordChange.bind(this);
+    this.hadleUsernameChange = this.hadleUsernameChange.bind(this);
 
     this.state = {
       username: undefined,
       email: undefined,
       password: undefined,
-      singup: {
-        success: undefined,
-        message: undefined
-      }
+      nameVisible: 'invisible',
+      mailVisible: 'invisible',
+      passVisible: 'invisible',
+      alertVisible: 'invisible',
+      message: undefined,
+      success: undefined, 
+      code: undefined
     }
   }
 
   static displayname = "Register";
 
+
+
   handleSubmit(e) {
     e.preventDefault();
-
     let dataToSend = {
       userData: {
-        username: this.refs.username.value,
-        email: this.refs.email.value,
-        password: this.refs.password.value
+        username: this.state.username,
+        email: this.state.email,
+        password: this.state.password
       }
     };
 
 
     let url = 'http://localhost:3001/users/register';
-    
+
     fetch(url, {
       method: "POST",
       body: JSON.stringify(dataToSend),
@@ -47,73 +64,166 @@ class Register extends Component {
         if (responseJson.success) {
           this.setState({
             ...this.state,
-            singup: {
-              success: true,
-              message: responseJson.message
-            }
+            success: true,
+            message: 'err_04',
+            alertVisible: 'alert-success visible',
+            mailVisible: 'invisible',
+            passVisible: 'invisible',
+            nameVisible: 'invisible',
           });
         } else {
           this.setState({
             ...this.state,
-            singup: {
-              success: false,
-              message: responseJson.message
-            }
+            success: false,
+            code: responseJson.code
           });
+          switch (this.state.code) {
+            case 'DD102_API_ERROR_01':
+              this.setState({
+                mailVisible: 'visible',
+                passVisible: 'visible',
+                nameVisible: 'visible',
+                alertVisible: 'invisible',
+                message: 'err_01'
+              })
+              break;
+            case 'DD102_API_ERROR_02':
+              this.setState({
+                mailVisible: 'visible',
+                passVisible: 'invisible',
+                nameVisible: 'visible',
+                alertVisible: 'invisible',
+                message: 'err_01'
+              })
+              break;
+            case 'DD102_API_ERROR_03':
+              this.setState({
+                mailVisible: 'invisible',
+                passVisible: 'visible',
+                nameVisible: 'visible',
+                alertVisible: 'invisible',
+                message: 'err_01'
+              })
+              break;
+            case 'DD102_API_ERROR_04':
+              this.setState({
+                mailVisible: 'visible',
+                passVisible: 'visible',
+                nameVisible: 'invisible',
+                alertVisible: 'invisible',
+                message: 'err_01'
+              })
+              break;
+            case 'DD102_API_ERROR_05':
+              this.setState({
+                mailVisible: 'invisible',
+                passVisible: 'invisible',
+                nameVisible: 'visible',
+                alertVisible: 'invisible',
+                message: 'err_01'
+              })
+              break;
+            case 'DD102_API_ERROR_06':
+              this.setState({
+                mailVisible: 'visible',
+                passVisible: 'invisible',
+                nameVisible: 'invisible',
+                alertVisible: 'invisible',
+                message: 'err_01'
+              })
+              break;
+            case 'DD102_API_ERROR_07':
+              this.setState({
+                mailVisible: 'invisible',
+                passVisible: 'visible',
+                nameVisible: 'invisible',
+                alertVisible: 'invisible',
+                message: 'err_01'
+              })
+              break;
+            case 'DD102_API_ERROR_08':
+              this.setState({
+                mailVisible: 'invisible',
+                passVisible: 'invisible',
+                nameVisible: 'invisible',
+                alertVisible: 'alert-danger visible',
+                message: 'err_05'
+              })
+              break;
+            case 'DD102_API_ERROR_09':
+              this.setState({
+                mailVisible: 'invisible',
+                passVisible: 'invisible',
+                nameVisible: 'invisible',
+                alertVisible: 'alert-danger visible',
+                message: 'err_06'
+              })
+              break;
+          }
         }
       })
 
-    this.refs.username.value = '';
-    this.refs.email.value = '';
-    this.refs.password.value = '';
   }
 
 
+  hadleUsernameChange(e) {
+    this.setState({
+      username: e.target.value
+    });
+  }
 
+  hadleEmailChange(e) {
+    this.setState({
+      email: e.target.value
+    });
+  }
+
+  hadlePasswordChange(e) {
+    this.setState({
+      password: e.target.value
+    });
+  }
 
   render() {
-    const responseFacebook = (response) => {
-      console.log(response);
-    }
+    // const responseFacebook = (response) => {
+    //   console.log(response);
+    // }
 
-    const responseGoogle = (response) => {
-      console.log(response);
-    }
+    // const responseGoogle = (response) => {
+    //   console.log(response);
+    // }
     return (
-      <div className="container-fluid" id="page-container" >
+      <div className="container-fluid" >
         <Header displaySING={"d-none"} />
-        <div className="row m-5">
-          <div className="col col-lg-12 mt-5">
-            <div className="jumbotron jumbotron-fluid bg-white" style={{ background: "transparent !important" }}>
-              <div className="container">
-                <div className="row">
-                  <div className="col-6  m-auto">  <img src="./images/coverC.jpg" className="img-fluid" alt="Responsive image" /></div>
-                  <div className="col-6 m-auto">
-                    {
-                      this.state.singup.success !== undefined ? (
-                        this.state.singup.success ?
-                          <div className="alert alert-success" role="alert">
-                            {this.state.singup.message}
+        <div className="container">
+          <div className="row">
+            <div className="col col-lg-12 mt-5">
+              <div className="jumbotron jumbotron-fluid bg-white" style={{ background: "transparent !important" }}>
+                <div className="container">
+                  <div className="row">
+                    <div className="col-6 m-auto">  <img src="./images/coverC.jpg" className="img-fluid" alt="kids" /></div>
+                    <div className="col-6 m-auto">
+                      <form className="form-inside-input" onSubmit={this.handleSubmit} noValidate>
+                        <div className={`alert  ${this.state.alertVisible}`} role="alert">
+                          <Translate content={`${this.state.message}`} />
+                        </div>
+                        <Translate component="input" onChange={this.hadleUsernameChange} type="text" id="exampleInputName" className="form-control" attributes={{ placeholder: "textName" }} aria-describedby="emailHelp" required />
+                        <div className={`text-danger ${this.state.nameVisible}  mb-2`}><Translate content={`${this.state.message}`} /></div>
+                        <Translate component="input" onChange={this.hadleEmailChange} type="email" id="exampleInputEmail" className="form-control" attributes={{ placeholder: "email_address" }} aria-describedby="emailHelp" required />
+                        <div className={`text-danger ${this.state.mailVisible}  mb-2`}><Translate content={`${this.state.message}`} /></div>
+                        <Translate component="input" onChange={this.hadlePasswordChange} type="password" id="exampleInputPassword1" className="form-control " attributes={{ placeholder: "password" }} aria-describedby="emailHelp" required />
+                        <div className={`text-danger ${this.state.passVisible}  mb-2`}><Translate content={`${this.state.message}`} /></div>
+                        {/* <div className="d-flex mb-3">
+                          <div className="form-check">
+                            <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                            <label className="form-check-label" htmlFor="exampleCheck1"><Translate content="textAgree"/></label>
                           </div>
-                          : 
-                          <div className="alert alert-danger" role="alert">
-                          {this.state.singup.message}
                         </div>
-                      ) : ''
-                    }
-                    <form className="form-inside-input p-5" onSubmit={this.handleSubmit} noValidate>
-                      <input type="text" ref="username" className="form-control mb-3" id="exampleInputName" aria-describedby="emailHelp" placeholder="Name" required />
-                      <input type="email" ref="email" className="form-control  mb-3" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter email" required />
-                      <input type="password" ref="password" className="form-control  mb-3" id="exampleInputPassword1" placeholder="Password" required />
-                      <div className="d-flex mb-3">
-                        <div className="form-check">
-                          <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                          <label className="form-check-label" htmlFor="exampleCheck1">I agree to  Terms of Service and Privacy Policy.</label>
-                        </div>
+                    */}
+                        <button type="submit" className="btn btn-project-color-6  btn-lg btn-block btn-rounded" data-dismiss="modal"><Translate content="btnSingUp" /></button>
+                      </form>
+                      <div>
                       </div>
-                      <button type="submit" className="btn btn-project-color-6  btn-lg btn-block btn-rounded" data-dismiss="modal">SING UP</button>
-                    </form>
-                    <div>
                     </div>
                   </div>
                 </div>

@@ -6,4 +6,4 @@ CREATE TABLE users (
   userpassword VARCHAR(100),
   date_created DATE,
   last_login DATE
-);
+); 
