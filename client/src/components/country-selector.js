@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Select from 'react-select'
-import countryList from 'react-select-country-list'
+import Select from 'react-select';
+import countryList from 'react-select-country-list';
 
 
 class CountrySelector extends Component {
