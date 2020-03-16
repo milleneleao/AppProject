@@ -34,7 +34,7 @@ const br = {
   textAgree: "Eu concordo com Termos de servico e a Politica de privacidade.",
   btnSingUp: "REGISTRA-SE",
   /*Profile page */
-  textTitleEdit: "Editar Perfil",
+  textTitleProfile: "Welcome ",
   textEditProfilePhot: "Editar foto do perfil",
   textLenghtPhoto: "Sua foto do perfil deve ter menos de 2MB.",
   btnUpload: "Upload",

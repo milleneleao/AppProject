@@ -5,7 +5,7 @@ import Translate from 'react-translate-component';
 import en from './languages/en';
 import uk from './languages/uk';
 import br from './languages/br';
-
+import '../css/aboutpr.css'
 counterpart.registerTranslations('en', en);
 counterpart.registerTranslations('uk', uk);
 counterpart.registerTranslations('br', br);
@@ -27,7 +27,6 @@ class Header extends Component {
     return (
       <nav className="navbar  bg-project-color-2">
         <Link to="/"><img src='./images/logo192.png' className="rounded float-left" alt="Logo" style={{ width: "40px" }} /></Link>
-
         <div className="float-right pr-3">
           <select className="custom-select mr-2" style={{ width: "200px" }} value={this.state.lang} onChange={this.onLangChange}>
             <option value="en">English</option>

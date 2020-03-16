@@ -45,13 +45,15 @@ router.post('/login', (req, res, next) => {
   
       if (code === undefined){
         let tokenData = {
-          name: result.rows[0].usermail,
-          email: result.rows[0].username
+          name: result.rows[0].username,
+          email: result.rows[0].usermail
         }
         let generatedToken = jwt.sign(tokenData, config.JWT_KEY, { expiresIn: '1m' });
         res.json({
           success: true,
-          token: generatedToken
+          token: generatedToken,
+          name:  result.rows[0].username,
+          uid: result.rows[0].uid,
         });
       } else {
         res.status(401).json({

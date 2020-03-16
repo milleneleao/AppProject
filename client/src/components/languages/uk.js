@@ -34,7 +34,7 @@ const uk = {
     textAgree:"I agree to Terms of Service and Privacy Policy.",
     btnSingUp:"SING UP" ,
     /*Profile page */
-    textTitleEdit: "Edit Profile",
+    textTitleProfile: "Welcome ",
     textEditProfilePhot: "Edit Profile Photo",
     textLenghtPhoto: "Your profile photo must be less than 2MB.",
     btnUpload: "Upload",

@@ -23,5 +23,11 @@ module.exports = {
     pool.query(`SELECT * FROM users WHERE usermail = $1`, values, (err, result) => {
       handler(err, result);
     })
-  }
+  },
+  insertClient: (values, handler) => { pool.query(`INSERT INTO client(uid, kidsname, parentname, fromcountry,livingcountry,picture,timezone,credit)
+    VALUES($1, $2, $3,  $4,  $5,  $6,  $7,  $8 )`, values, (err, result) => {
+    handler(err, result);
+  })
+}
+
 }
