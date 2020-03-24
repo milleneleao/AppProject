@@ -1,0 +1,23 @@
+html {
+    height: 100%;
+}
+  
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-secondary{
+    background-color:#D94141;
+    border-color: #D94141;
+}
+
+#page-container {
+    position: relative;
+    min-height: 5vh;
+  }
+  
+  #content-wrap {
+    padding-bottom: 3.5rem;   
+  }

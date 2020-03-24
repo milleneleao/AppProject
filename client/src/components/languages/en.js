@@ -34,7 +34,7 @@ const en = {
     textAgree: "I agree to Terms of Service and Privacy Policy.",
     btnSingUp: "SING UP",
     /*Profile page */
-    textTitleEdit: "Edit Profile",
+    textTitleProfile: "Welcome ",
     textEditProfilePhot: "Edit Profile Photo",
     textLenghtPhoto: "Your profile photo must be less than 2MB.",
     btnUpload: "Upload",
@@ -66,7 +66,25 @@ const en = {
     err_03: `Password does not match!`,
     err_04: `User registered.`,
     err_05: `User not registered.`,
-    err_06: `Email already registered!`
+    err_06: `Email already registered!`,
+
+    /*About the course page*/
+
+    txtTitleCourse: "Hello ABC",
+    txtAboutCourse: "The course is designed for young learners that  have never learned English before. Every class has interesting and well organized content. After a sucsessful completion of the course the student will know phonics, letters, will be able to read simple CVC words and increase the vocabulary.",
+    txtForBalanceBox1: "Total balance",
+    btnBook: "Book",
+
+    txtBookCourseTitle: "ook a course",
+    txtTrial: "Trial Class",
+    txtTrialDesc: "1 Lesson / 30 min ",
+    txtCourse: "Full Course",
+    txtCourseDesc: "5 Lessons / 30 min ",
+
+    txtTeacher: "Teacher",
+    txtTeacherAbout: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    
+    
 };
 
 export default en;

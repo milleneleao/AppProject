@@ -34,7 +34,7 @@ const br = {
   textAgree: "Eu concordo com Termos de servico e a Politica de privacidade.",
   btnSingUp: "REGISTRA-SE",
   /*Profile page */
-  textTitleEdit: "Editar Perfil",
+  textTitleProfile: "Welcome ",
   textEditProfilePhot: "Editar foto do perfil",
   textLenghtPhoto: "Sua foto do perfil deve ter menos de 2MB.",
   btnUpload: "Upload",
@@ -55,7 +55,24 @@ const br = {
   err_03: `A senha não corresponde!`,
   err_04: `Usuário Registrado.`,
   err_05: `Usuário não Registrado.`,
-  err_06: `E-mail já cadastrado!`
+  err_06: `E-mail já cadastrado!`,
+
+    /*About the course page*/
+
+    txtTitleCourse: "Hello ABC",
+    txtAboutCourse: "The course is designed for young learners that  have never learned English before. Every class has interesting and well organized content. After a sucsessful completion of the course the student will know phonics, letters, will be able to read simple CVC words and increase the vocabulary.",
+    txtForBalanceBox1: "Total balance",
+    btnBook: "Book",
+
+    txtBookCourseTitle: "ook a course",
+    txtTrial: "Trial Class",
+    txtTrialDesc: "1 Lesson / 30 min ",
+    txtCourse: "Full Course",
+    txtCourseDesc: "5 Lessons / 30 min ",
+
+    txtTeacher: "Teacher",
+    txtTeacherAbout: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    
 
 };
 

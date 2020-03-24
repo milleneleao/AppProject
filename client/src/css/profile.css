@@ -1,34 +1,18 @@
-#profilePhoto{
-    padding-left: 100px;
+.btn-file {
+    position: relative;
+    overflow: hidden;
 }
-
-.text{
-    padding-left:20%;
-    display: inline-flex;
-    padding-top: 1%;
-}
-
-.textBox{
-    margin-left:20px;
-    display:inline-block;
-}
-
-.textBox1{
-    margin-left:105px;
-    display:inline-block;
-}
-
-.dropdown{
-    padding-left:20%;
-    margin-right:40%;
-}
-
-h1{
-   text-align: center; 
-   padding-top: 1%;
-   padding-bottom: 1%;
-}
-
-.card-body{
-    padding-left: 10%;
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;   
+    cursor: inherit;
+    display: block;
 }

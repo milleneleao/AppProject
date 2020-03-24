@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/header';
 import counterpart from 'counterpart';
-import Translate, { translate } from 'react-translate-component';
+import Translate from 'react-translate-component';
 import en from './components/languages/en';
 import uk from './components/languages/uk';
 import br from './components/languages/br';
@@ -27,6 +27,7 @@ class Login extends Component {
       success: undefined,
       message: undefined,
       code: undefined,
+      userName: undefined,
       mailVisible: 'invisible',
       passvisible: 'invisible',
       alertVisible: 'invisible'
@@ -97,11 +98,25 @@ class Login extends Component {
           localStorage.setItem('DD101_TOKEN', responseJson.token);
           this.setState({
             success: true,
+            userName: responseJson.name,
             mailVisible: 'invisible',
             passvisible: 'invisible',
             alertVisible: 'invisible'
           })
-          this.props.history.push("/Profile");
+
+          //If there is Client Regiter call Dashboard Page
+
+          //else call Profile page
+          var firstName = this.state.userName.replace(/ .*/,'');
+          this.props.history.push({
+            pathname : '/Profile',
+            state :{
+              name : firstName,
+              uid : responseJson.uid
+            }
+            } 
+          );
+
         } else {
           this.setState({
             success: false,

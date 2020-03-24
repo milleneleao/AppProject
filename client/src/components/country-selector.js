@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Select from 'react-select'
-import countryList from 'react-select-country-list'
+import Select from 'react-select';
+import countryList from 'react-select-country-list';
 
 
 class CountrySelector extends Component {
@@ -13,16 +13,18 @@ class CountrySelector extends Component {
       options: this.options,
       value: null,
     }
+
   }
 
   changeHandler = value => {
-    this.setState({ value })
+    this.setState({ value });
+    console.log(value);
   }
   
   render() {
     return (
       <Select
-        options={this.state.options}
+        options={countryList().getData()}
         value={this.state.value}
         onChange={this.changeHandler}
       />

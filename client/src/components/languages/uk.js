@@ -34,7 +34,7 @@ const uk = {
     textAgree:"I agree to Terms of Service and Privacy Policy.",
     btnSingUp:"SING UP" ,
     /*Profile page */
-    textTitleEdit: "Edit Profile",
+    textTitleProfile: "Welcome ",
     textEditProfilePhot: "Edit Profile Photo",
     textLenghtPhoto: "Your profile photo must be less than 2MB.",
     btnUpload: "Upload",
@@ -54,7 +54,23 @@ const uk = {
     err_03: `Password does not match!`,
     err_04: `User registered.`,
     err_05: `User not registered.`,
-    err_06: `Email already registered!`
+    err_06: `Email already registered!`,
+
+    /*About the course page*/
+
+    txtTitleCourse: "Привіт ABC",
+    txtAboutCourse: "Цей курс розробленний для дітей віком від 4 років. Дуже цікавий контент, який допоможе навяатися весело та дитина не помітить як плине час. Кожен урок був розроблений висококвалівікованими фахівцями. Після успішного закінчення курсу студент буде знати алфавіт, звуки, прості слова та фрази.",
+    txtForBalanceBox1: "Загальний баланс",
+    btnBook: "Купити",
+
+    txtBookCourseTitle: "Купити курс",
+    txtTrial: "Пробний урок",
+    txtTrialDesc: "1 урок / 30 хвилин ",
+    txtCourse: "Повний курс",
+    txtCourseDesc: "5 уроків / 30 хвилин ",
+
+    txtTeacher: "Викладач",
+    txtTeacherAbout: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
 
     
 };

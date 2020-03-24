@@ -159,6 +159,8 @@ class Register extends Component {
                 message: 'err_06'
               })
               break;
+              default:
+                // code block
           }
         }
       })
