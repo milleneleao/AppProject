@@ -36,7 +36,7 @@ router.post('/register', function (req, res, next) {
         timezone = val;
         break;
       case "image":
-        console.log(val);
+        //console.log(val);
         image = val;
         break;
       default:
@@ -76,8 +76,8 @@ router.post('/register', function (req, res, next) {
 
 router.post('/credit', (req, res, next) => {
   const {uid, valor} = req.body.userData;
-console.log(uid,valor);
-console.log( req.body.userData);
+//console.log(uid,valor);
+//console.log( req.body.userData);
   const handler = (err, result) => {
     if (!err) {
       res.json({
@@ -103,7 +103,7 @@ console.log( req.body.userData);
 
 router.post('/course', (req, res, next) => {
   const {uid, cco,data_course} = req.body.userData;
-  console.log( req.body.userData);
+  //console.log( req.body.userData);
   const handler = (err, result) => {
     if (!err) {
       res.json({
@@ -125,7 +125,7 @@ router.post('/course', (req, res, next) => {
 });
 
 router.get('/image/:id', (req, res, next) => {
-  console.log(req.params.id);
+//  console.log(req.params.id);
   const handler = (err, result) => {
     if (!err) {
       var base64data = Buffer.from(result.rows[0].picture, 'binary').toString();
@@ -149,7 +149,7 @@ router.get('/image/:id', (req, res, next) => {
 });
 
 router.get('/credit/:id', (req, res, next) => {
-  console.log(req.params.id);
+  //console.log(req.params.id);
   const handler = (err, result) => {
     if (!err) {
       res.json({
@@ -172,13 +172,13 @@ router.get('/credit/:id', (req, res, next) => {
 });
 
 router.get('/course/:id', (req, res, next) => {
-  console.log(req.params.id);
+  //console.log(req.params.id);
   const handler = (err, result) => {
     if (!err) {
       var data= null;
       if (result.rowCount > 0) data =  result.rows[0].data_course
-      console.log(result.rowCount);
-      console.log(data);
+      //console.log(result.rowCount);
+      //console.log(data);
       res.json({
         success: true,
         message: '',
