@@ -48,6 +48,16 @@ const en = {
     textNativeLanguages: "Native Language:",
     textLanguageLearn: "Language you want to Learn:",
     btnSave: "Save",
+    /*Dashboard Page */
+    textMyCourses: "My Courses",
+    textRecCourses: "Recommended Courses",
+    textKidName: "Kid's Names",
+    btnShowAll: "Show All",
+    btnMoreInfo: "More Info",
+    textUserID: "Used ID:",
+    textNotifications: "Notifications",
+    textBalance: "Total Balance:",
+    btnCredits: "Add Credits",
 
 
     /* messages returned from the server */

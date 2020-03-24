@@ -7,6 +7,7 @@ import Welcome from './Welcome';
 import Login from './Login'; 
 import Register from './Register';
 import Profile from './Profile'
+import Dashboard from './Dashboard';
 import './scss/custom.scss';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
@@ -18,7 +19,8 @@ ReactDOM.render(
             <Route path="/login" component={Login} />
             <Route path="/aboutproject" exact={true} component={AboutProject} />
             <Route path="/register" component={Register} />
-            <Route path="/profile" component={Profile} />
+            <Route path="/profile" component={Profile} /> 
+            <Route path="/dashboard" component={Dashboard} /> 
         </Switch>
     </BrowserRouter>
     , document.getElementById('root'));
