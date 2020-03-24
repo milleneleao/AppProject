@@ -25,6 +25,12 @@ module.exports = {
       handler(err, result);
     })
   },
+  insertCourse: (values, handler) => {
+    pool.query(`INSERT INTO client_course(uid, cco, data_course)
+                 VALUES($1, $2, $3)`, values, (err, result) => {
+      handler(err, result);
+    })
+  },
   findUser: (values, handler) => {
     pool.query(`SELECT * FROM users WHERE usermail = $1`, values, (err, result) => {
       handler(err, result);
@@ -42,6 +48,16 @@ module.exports = {
   },
   findCredit: (values, handler) => {
     pool.query(`SELECT credit FROM client WHERE uid = $1`, values, (err, result) => {
+      handler(err, result);
+    })
+  },
+  findData:  (values, handler) => {
+    pool.query(`SELECT * FROM client WHERE client.uid = $1`, values, (err, result) => {
+      handler(err, result);
+    })
+  },
+  findData_course: (values,handler) => {
+    pool.query(`SELECT * FROM client_course WHERE uid = $1`, values, (err, result) => {
       handler(err, result);
     })
   },

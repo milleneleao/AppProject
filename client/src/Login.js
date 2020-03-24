@@ -106,7 +106,7 @@ class Login extends Component {
           if (responseJson.showProfile) {
             //If there is Client Regiter call Dashboard Page
             this.props.history.push({
-              pathname: '/AboutCourse',
+              pathname: '/Dashboard',
               state: {
                 uid: responseJson.uid 
               }

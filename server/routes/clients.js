@@ -101,6 +101,29 @@ console.log( req.body.userData);
   
 });
 
+router.post('/course', (req, res, next) => {
+  const {uid, cco,data_course} = req.body.userData;
+  console.log( req.body.userData);
+  const handler = (err, result) => {
+    if (!err) {
+      res.json({
+        success: true,
+        message: ''
+      });
+    } else {
+      console.log(err);
+      res.json({
+        success: false,
+        message: '',
+        code: err.code,
+        error: err
+      });
+
+    }
+  }
+  db.insertCourse([uid,cco,data_course], handler);
+});
+
 router.get('/image/:id', (req, res, next) => {
   console.log(req.params.id);
   const handler = (err, result) => {
@@ -147,6 +170,67 @@ router.get('/credit/:id', (req, res, next) => {
   }
   db.findCredit([req.params.id], handler);
 });
+
+router.get('/course/:id', (req, res, next) => {
+  console.log(req.params.id);
+  const handler = (err, result) => {
+    if (!err) {
+      var data= null;
+      if (result.rowCount > 0) data =  result.rows[0].data_course
+      console.log(result.rowCount);
+      console.log(data);
+      res.json({
+        success: true,
+        message: '',
+        data:  data
+      });
+    } else {
+      console.log(err);
+      res.json({
+        success: false,
+        message: '',
+        code: err.code,
+        error: err
+      });
+
+    }
+  }
+  db.findData_course([req.params.id], handler);
+});
+
+
+router.get('/dashboard/:id', (req, res, next) => {
+
+      const handler = (err, result) => {
+        if (!err) {
+          var base64data = Buffer.from(result.rows[0].picture, 'binary').toString();
+          var kidsName   = result.rows[0].kidsname;
+          var credit     = result.rows[0].credit;
+          res.json({
+            success: true,
+            message: '',
+            image:  base64data,
+            kidsName: kidsName,
+            credit: credit,
+            data_course: ""
+          });
+        } else {
+          console.log(err);
+          res.json({
+            success: false,
+            message: '',
+            code: err.code,
+            error: err
+          });
+    
+        }
+      }
+      db.findData([req.params.id], handler);
+
+
+});
+
+
 
 
 module.exports = router;

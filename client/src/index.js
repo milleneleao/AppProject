@@ -10,6 +10,7 @@ import Profile      from './Profile';
 import Calendar    from './Calendar';
 import AboutCourse from './AboutCourse';
 import PayPage     from './PayPage';
+import Dashboard from './Dashboard';
 import './scss/custom.scss';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
@@ -21,6 +22,8 @@ ReactDOM.render(
             <Route path="/login" component={Login} />
             <Route path="/aboutproject" exact={true} component={AboutProject} />
             <Route path="/register" component={Register} />
+            <Route path="/profile" component={Profile} /> 
+            <Route path="/dashboard" component={Dashboard} /> 
             <Route path="/profile" component={Profile} />
             <Route path="/calendar" component={Calendar} />
             <Route path="/aboutcourse" component={AboutCourse} />

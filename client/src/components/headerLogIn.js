@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 class HeaderLogIn extends Component {
   constructor() {
@@ -33,7 +34,12 @@ class HeaderLogIn extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-light  bg-project-color-3">
         <div className="col-4">
-          <img src='./images/logo192.png' className="rounded float-left" alt="Logo" style={{ width: "40px" }} />
+        <Link to={{
+          pathname: '/dashboard',
+          state: {
+            uid: this.props.uid
+          }
+        }}><img src='./images/logo192.png' className="rounded float-left" alt="Logo" style={{ width: "40px" }} /></Link>
         </div>
         <div className="col-8">
           <div className="btn-group  float-right">

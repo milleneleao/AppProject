@@ -13,11 +13,20 @@ cid     SERIAL PRIMARY KEY,
 uid      integer,
 kidsName VARCHAR(255),
 parentName VARCHAR(255),
-fromCountry json ,
-livingCountry json ,
+fromCountry VARCHAR(255)
+livingCountry VARCHAR(255)
 picture bytea,
-timezone json,
+timezone VARCHAR(255)
 credit float,
  FOREIGN KEY (uid) REFERENCES users (uid)
 );
+
+CREATE TABLE client_course (
+ccid         SERIAL PRIMARY KEY,
+uid          integer,
+cco          integer,
+data_course  VARCHAR(4000),
+ FOREIGN KEY (uid) REFERENCES users (uid)
+);
+
 

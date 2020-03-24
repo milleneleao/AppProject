@@ -64,33 +64,57 @@ class PayPage extends Component {
         });
     }
 
-    handleClickPay(e) {
-        if (this.state.total <= this.state.credit){
-            let newCredit = this.state.credit - this.state.total;
-            let url = 'http://localhost:3001/clients/credit';
+    async handleClickPay(e) {
+        if (this.state.total <= this.state.credit) {
+ 
+            let url = 'http://localhost:3001/clients/course';
             let dataToSend = {
                 userData: {
                     uid: this.props.location.state.uid,
-                  valor: newCredit
+                    cco: 1,
+                    data_course: JSON.stringify(this.state.jsonCourses)
                 }
-              };
-            fetch(url, {
-              method: "POST",
-              body: JSON.stringify(dataToSend),
-              headers: {
-                "Content-Type": "application/json"
-              }
+            };
+            let response = await fetch(url, {
+                method: "POST",
+                body: JSON.stringify(dataToSend),
+                headers: {
+                    "Content-Type": "application/json"
+                }
             }).then(response => response.json())
-              .then(responseJson => {
-              }).catch(err => console.log('Error ', err));
+                .then(responseJson => {
+                    console.log(responseJson);
+            }).catch(err => console.log('Error ', err));
 
-              this.props.history.push({
-                pathname: '/AboutCourse',
+            console.log(response);
+
+            let newCredit = this.state.credit - this.state.total;
+            url = 'http://localhost:3001/clients/credit';
+            dataToSend = {
+                userData: {
+                    uid: this.props.location.state.uid,
+                    valor: newCredit
+                }
+            };
+            response = await fetch(url, {
+                method: "POST",
+                body: JSON.stringify(dataToSend),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(response => response.json())
+                .then(responseJson => {
+                }).catch(err => console.log('Error ', err));
+
+            
+
+            this.props.history.push({
+                pathname: '/dashboard',
                 state: {
                     uid: this.props.location.state.uid
                 }
             });
-          }  else {
+        } else {
             this.setState({
                 msgVisible: 'visible'
             });
@@ -120,10 +144,10 @@ class PayPage extends Component {
                                     <h5 className="text text-center pt-3 "> Review </h5>
                                 </div>
                                 <div className="text ">
-                                {this.state.jsonCourses.map((item, index) => {
-                                    return (<div key={item.id}>{item.id}) {moment(item.start).format("MMMM, D YYYY: h:mm:ss a")} - {moment(item.end).format("h:mm:ss a")}  </div>)
-                                })}
-                                    </div>
+                                    {this.state.jsonCourses.map((item, index) => {
+                                        return (<div key={item.id}>{item.id}) {moment(item.start).format("MMMM, D YYYY: h:mm:ss a")} - {moment(item.end).format("h:mm:ss a")}  </div>)
+                                    })}
+                                </div>
                             </div>
                             <div className="col-1 " style={{ backgroundColor: "write" }}>  </div>
                             <div className="col-3 p-2 text-center " style={{ backgroundColor: "#F0EFE8" }}>
