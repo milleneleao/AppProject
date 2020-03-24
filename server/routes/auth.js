@@ -4,7 +4,7 @@ const router = express.Router();
 //config
 const config = require('../config');
 var jwt = require('jsonwebtoken');
-var bcrypt = require(' ');
+var bcrypt = require('bcrypt');
 var db = require('../db');
 
 /*
@@ -48,13 +48,26 @@ router.post('/login', (req, res, next) => {
           name: result.rows[0].username,
           email: result.rows[0].usermail
         }
+
+        var showProfile = false;
+        const handlerClient = (errc, result1) => {
+          console.log(!errc);
+          console.log(result1.rowCount > 0);
+          if (!errc && result1.rowCount > 0) {
+            showProfile = true;
+          }
+                console.log(showProfile);
         let generatedToken = jwt.sign(tokenData, config.JWT_KEY, { expiresIn: '1m' });
-        res.json({
-          success: true,
-          token: generatedToken,
-          name:  result.rows[0].username,
-          uid: result.rows[0].uid,
-        });
+          res.json({
+            success: true,
+            token: generatedToken,
+            name:  result.rows[0].username,
+            uid: result.rows[0].uid,
+            showProfile: showProfile,
+          });
+          
+        }
+        db.findClient([result.rows[0].uid], handlerClient);
       } else {
         res.status(401).json({
           success: false,

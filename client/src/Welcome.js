@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/header';
 import Footer from './components/footer';
-import './css/welcome.css';
 import counterpart from 'counterpart';
 import Translate from 'react-translate-component';
 import en from './components/languages/en';

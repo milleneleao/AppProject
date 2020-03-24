@@ -103,26 +103,31 @@ class Login extends Component {
             passvisible: 'invisible',
             alertVisible: 'invisible'
           })
-
-          //If there is Client Regiter call Dashboard Page
-
-          //else call Profile page
-          var firstName = this.state.userName.replace(/ .*/,'');
-          this.props.history.push({
-            pathname : '/Profile',
-            state :{
-              name : firstName,
-              uid : responseJson.uid
-            }
-            } 
-          );
-
+          if (responseJson.showProfile) {
+            //If there is Client Regiter call Dashboard Page
+            this.props.history.push({
+              pathname: '/AboutCourse',
+              state: {
+                uid: responseJson.uid 
+              }
+            });
+          } else {
+            //else call Profile page
+            var firstName = this.state.userName.replace(/ .*/, '');
+            this.props.history.push({
+              pathname: '/Profile',
+              state: {
+                name: firstName,
+                uid: responseJson.uid 
+              }
+            });
+          }
         } else {
           this.setState({
             success: false,
             code: responseJson.code
           })
-          console.log(this.state.code);
+          console.log(responseJson);
           switch (this.state.code) {
             case 'DD101_API_ERROR_01':
               this.setState({
@@ -153,7 +158,7 @@ class Login extends Component {
                 mailVisible: 'invisible',
                 passvisible: 'invisible',
                 alertVisible: 'visible',
-                message: responseJson.message
+                message: responseJson.message.code
               })
               break;
             case 'DD101_API_ERROR_05':
@@ -163,7 +168,7 @@ class Login extends Component {
                 alertVisible: 'visible',
                 message: 'err_02'
               })
- 
+
               break;
             case 'DD101_API_ERROR_06':
               this.setState({
@@ -213,12 +218,12 @@ class Login extends Component {
                     <div className="col-6 m-auto">
                       <form className="form-inside-input" onSubmit={this.handleSubmit} noValidate>
                         <div className={`alert alert-danger ${this.state.alertVisible}`} role="alert">
-                        <Translate content={`${this.state.message}`}/>
+                          <Translate content={`${this.state.message}`} />
                         </div>
                         <Translate component="input" type="email" onChange={this.hadleEmailChange} id="exampleInputEmail" className="form-control" attributes={{ placeholder: "email_address" }} aria-describedby="emailHelp" required />
-                        <div className={`text-danger ${this.state.mailVisible}  mb-2`}><Translate content={`${this.state.message}`}/></div>
+                        <div className={`text-danger ${this.state.mailVisible}  mb-2`}><Translate content={`${this.state.message}`} /></div>
                         <Translate component="input" type="password" onChange={this.hadlePasswordChange} id="exampleInputPassword1" className="form-control" attributes={{ placeholder: "password" }} aria-describedby="emailHelp" required />
-                        <div className={`text-danger ${this.state.passvisible} mb-2`}> <Translate content={`${this.state.message}`}/></div>
+                        <div className={`text-danger ${this.state.passvisible} mb-2`}> <Translate content={`${this.state.message}`} /></div>
                         {/* <div className="d-flex mb-3">
                          <div className="form-check">
                             <input type="checkbox" className="form-check-input" id="exampleCheck1" />

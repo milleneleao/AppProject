@@ -107,6 +107,13 @@ class Profile extends React.Component {
       .then(responseJson => {
         console.log(responseJson);
         if (responseJson.success) {
+          this.props.history.push({
+            pathname: '/AboutCourse',
+            state: {
+              course: this.state.course,
+              uid: this.props.location.state.uid
+            }
+          });
         } else {
 
         }

@@ -33,6 +33,7 @@ const br = {
   textName: "Nome",
   textAgree: "Eu concordo com Termos de servico e a Politica de privacidade.",
   btnSingUp: "REGISTRA-SE",
+  passwordC: "Repita a Senha",
   /*Profile page */
   textTitleProfile: "Welcome ",
   textEditProfilePhot: "Editar foto do perfil",
@@ -63,8 +64,8 @@ const br = {
     txtAboutCourse: "The course is designed for young learners that  have never learned English before. Every class has interesting and well organized content. After a sucsessful completion of the course the student will know phonics, letters, will be able to read simple CVC words and increase the vocabulary.",
     txtForBalanceBox1: "Total balance",
     btnBook: "Book",
-
-    txtBookCourseTitle: "ook a course",
+    btnSelect: "Selecionar",
+    txtBookCourseTitle: "Choose a course",
     txtTrial: "Trial Class",
     txtTrialDesc: "1 Lesson / 30 min ",
     txtCourse: "Full Course",

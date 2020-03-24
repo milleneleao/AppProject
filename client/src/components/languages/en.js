@@ -33,6 +33,8 @@ const en = {
     textName: "Name",
     textAgree: "I agree to Terms of Service and Privacy Policy.",
     btnSingUp: "SING UP",
+    passwordC: "Repeat Password",
+    messagep: "The password is not the same entered in the Password field!",
     /*Profile page */
     textTitleProfile: "Welcome ",
     textEditProfilePhot: "Edit Profile Photo",
@@ -64,8 +66,10 @@ const en = {
     txtAboutCourse: "The course is designed for young learners that  have never learned English before. Every class has interesting and well organized content. After a sucsessful completion of the course the student will know phonics, letters, will be able to read simple CVC words and increase the vocabulary.",
     txtForBalanceBox1: "Total balance",
     btnBook: "Book",
+    btnSelect: "Select",
+    txtSelect: "Select a course!",
 
-    txtBookCourseTitle: "ook a course",
+    txtBookCourseTitle: "Choose a course",
     txtTrial: "Trial Class",
     txtTrialDesc: "1 Lesson / 30 min ",
     txtCourse: "Full Course",

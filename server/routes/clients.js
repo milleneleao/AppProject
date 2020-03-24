@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var util = require('util');
 const formidable = require('formidable');
 
 var db = require('../db');
@@ -17,7 +16,6 @@ router.post('/register', function (req, res, next) {
   var image = null
   form.parse(req);
   form.on('field', (name, val) => {
-
     switch (name) {
       case "uid":
         uid = val;
@@ -38,6 +36,7 @@ router.post('/register', function (req, res, next) {
         timezone = val;
         break;
       case "image":
+        console.log(val);
         image = val;
         break;
       default:
@@ -69,10 +68,85 @@ router.post('/register', function (req, res, next) {
 
         }
       }
-     // console.log(values);
+      // console.log(values);
       db.insertClient(values, handler);
     }
   });
 });
+
+router.post('/credit', (req, res, next) => {
+  const {uid, valor} = req.body.userData;
+console.log(uid,valor);
+console.log( req.body.userData);
+  const handler = (err, result) => {
+    if (!err) {
+      res.json({
+        success: true,
+        message: ''
+      });
+    } else {
+      console.log(err);
+      res.json({
+        success: false,
+        message: '',
+        code: err.code,
+        error: err
+      });
+
+    }
+  }
+  db.updateCredit([uid,valor], handler);
+
+  
+  
+});
+
+router.get('/image/:id', (req, res, next) => {
+  console.log(req.params.id);
+  const handler = (err, result) => {
+    if (!err) {
+      var base64data = Buffer.from(result.rows[0].picture, 'binary').toString();
+      res.json({
+        success: true,
+        message: '',
+        data:  base64data
+      });
+    } else {
+      console.log(err);
+      res.json({
+        success: false,
+        message: '',
+        code: err.code,
+        error: err
+      });
+
+    }
+  }
+  db.findImage([req.params.id], handler);
+});
+
+router.get('/credit/:id', (req, res, next) => {
+  console.log(req.params.id);
+  const handler = (err, result) => {
+    if (!err) {
+      res.json({
+        success: true,
+        message: '',
+        data:  result.rows[0].credit
+      });
+    } else {
+      console.log(err);
+      res.json({
+        success: false,
+        message: '',
+        code: err.code,
+        error: err
+      });
+
+    }
+  }
+  db.findCredit([req.params.id], handler);
+});
+
 
 module.exports = router;

@@ -20,17 +20,22 @@ class Register extends Component {
     this.hadleEmailChange = this.hadleEmailChange.bind(this);
     this.hadlePasswordChange = this.hadlePasswordChange.bind(this);
     this.hadleUsernameChange = this.hadleUsernameChange.bind(this);
+    this.hadlePasswordChangeConfirm = this.hadlePasswordChangeConfirm.bind(this);
 
     this.state = {
       username: undefined,
       email: undefined,
       password: undefined,
+      passwordC: undefined,
+      submit: false,
       nameVisible: 'invisible',
       mailVisible: 'invisible',
       passVisible: 'invisible',
+      passVisibleC: 'invisible',
       alertVisible: 'invisible',
       message: undefined,
-      success: undefined, 
+      messagep: undefined,
+      success: undefined,
       code: undefined
     }
   }
@@ -41,129 +46,152 @@ class Register extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let dataToSend = {
-      userData: {
-        username: this.state.username,
-        email: this.state.email,
-        password: this.state.password
+   
+
+    var aux = (this.state.username === undefined || this.state.email === undefined || this.state.password === undefined);
+    if (!aux){
+      this.setState({
+        mailVisible: 'invisible',
+        passVisible: 'invisible',
+        nameVisible: 'invisible'
+      });
+      
+      if (this.state.passwordC === undefined){
+        this.setState({
+          passVisibleC: 'visible',
+          messagep:     'messagep'
+        });
+      } else if (this.state.submit){
+        aux = true;
       }
-    };
+    }
 
-
-    let url = 'http://localhost:3001/users/register';
-
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(dataToSend),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    }).then(response => response.json())
-      .then(responseJson => {
-        console.log(responseJson);
-        if (responseJson.success) {
-          this.setState({
-            ...this.state,
-            success: true,
-            message: 'err_04',
-            alertVisible: 'alert-success visible',
-            mailVisible: 'invisible',
-            passVisible: 'invisible',
-            nameVisible: 'invisible',
-          });
-        } else {
-          this.setState({
-            ...this.state,
-            success: false,
-            code: responseJson.code
-          });
-          switch (this.state.code) {
-            case 'DD102_API_ERROR_01':
-              this.setState({
-                mailVisible: 'visible',
-                passVisible: 'visible',
-                nameVisible: 'visible',
-                alertVisible: 'invisible',
-                message: 'err_01'
-              })
-              break;
-            case 'DD102_API_ERROR_02':
-              this.setState({
-                mailVisible: 'visible',
-                passVisible: 'invisible',
-                nameVisible: 'visible',
-                alertVisible: 'invisible',
-                message: 'err_01'
-              })
-              break;
-            case 'DD102_API_ERROR_03':
-              this.setState({
-                mailVisible: 'invisible',
-                passVisible: 'visible',
-                nameVisible: 'visible',
-                alertVisible: 'invisible',
-                message: 'err_01'
-              })
-              break;
-            case 'DD102_API_ERROR_04':
-              this.setState({
-                mailVisible: 'visible',
-                passVisible: 'visible',
-                nameVisible: 'invisible',
-                alertVisible: 'invisible',
-                message: 'err_01'
-              })
-              break;
-            case 'DD102_API_ERROR_05':
-              this.setState({
-                mailVisible: 'invisible',
-                passVisible: 'invisible',
-                nameVisible: 'visible',
-                alertVisible: 'invisible',
-                message: 'err_01'
-              })
-              break;
-            case 'DD102_API_ERROR_06':
-              this.setState({
-                mailVisible: 'visible',
-                passVisible: 'invisible',
-                nameVisible: 'invisible',
-                alertVisible: 'invisible',
-                message: 'err_01'
-              })
-              break;
-            case 'DD102_API_ERROR_07':
-              this.setState({
-                mailVisible: 'invisible',
-                passVisible: 'visible',
-                nameVisible: 'invisible',
-                alertVisible: 'invisible',
-                message: 'err_01'
-              })
-              break;
-            case 'DD102_API_ERROR_08':
-              this.setState({
-                mailVisible: 'invisible',
-                passVisible: 'invisible',
-                nameVisible: 'invisible',
-                alertVisible: 'alert-danger visible',
-                message: 'err_05'
-              })
-              break;
-            case 'DD102_API_ERROR_09':
-              this.setState({
-                mailVisible: 'invisible',
-                passVisible: 'invisible',
-                nameVisible: 'invisible',
-                alertVisible: 'alert-danger visible',
-                message: 'err_06'
-              })
-              break;
-              default:
-                // code block
-          }
+    if (aux) {
+      let dataToSend = {
+        userData: {
+          username: this.state.username,
+          email: this.state.email,
+          password: this.state.password
         }
-      })
+      };
+
+
+      let url = 'http://localhost:3001/users/register';
+
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(dataToSend),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(response => response.json())
+        .then(responseJson => {
+          console.log(responseJson);
+          if (responseJson.success) {
+            this.setState({
+              ...this.state,
+              success: true,
+              message: 'err_04',
+              alertVisible: 'alert-success visible',
+              mailVisible: 'invisible',
+              passVisible: 'invisible',
+              nameVisible: 'invisible',
+            });
+          } else {
+            this.setState({
+              ...this.state,
+              success: false,
+              code: responseJson.code
+            });
+            switch (this.state.code) {
+              case 'DD102_API_ERROR_01':
+                this.setState({
+                  mailVisible: 'visible',
+                  passVisible: 'visible',
+                  nameVisible: 'visible',
+                  alertVisible: 'invisible',
+                  message: 'err_01'
+                })
+                break;
+              case 'DD102_API_ERROR_02':
+                this.setState({
+                  mailVisible: 'visible',
+                  passVisible: 'invisible',
+                  nameVisible: 'visible',
+                  alertVisible: 'invisible',
+                  message: 'err_01'
+                })
+                break;
+              case 'DD102_API_ERROR_03':
+                this.setState({
+                  mailVisible: 'invisible',
+                  passVisible: 'visible',
+                  nameVisible: 'visible',
+                  alertVisible: 'invisible',
+                  message: 'err_01'
+                })
+                break;
+              case 'DD102_API_ERROR_04':
+                this.setState({
+                  mailVisible: 'visible',
+                  passVisible: 'visible',
+                  nameVisible: 'invisible',
+                  alertVisible: 'invisible',
+                  message: 'err_01'
+                })
+                break;
+              case 'DD102_API_ERROR_05':
+                this.setState({
+                  mailVisible: 'invisible',
+                  passVisible: 'invisible',
+                  nameVisible: 'visible',
+                  alertVisible: 'invisible',
+                  message: 'err_01'
+                })
+                break;
+              case 'DD102_API_ERROR_06':
+                this.setState({
+                  mailVisible: 'visible',
+                  passVisible: 'invisible',
+                  nameVisible: 'invisible',
+                  alertVisible: 'invisible',
+                  message: 'err_01'
+                })
+                break;
+              case 'DD102_API_ERROR_07':
+                this.setState({
+                  mailVisible: 'invisible',
+                  passVisible: 'visible',
+                  nameVisible: 'invisible',
+                  alertVisible: 'invisible',
+                  message: 'err_01'
+                })
+                break;
+              case 'DD102_API_ERROR_08':
+                this.setState({
+                  mailVisible: 'invisible',
+                  passVisible: 'invisible',
+                  nameVisible: 'invisible',
+                  alertVisible: 'alert-danger visible',
+                  message: 'err_05'
+                })
+                break;
+              case 'DD102_API_ERROR_09':
+                this.setState({
+                  mailVisible: 'invisible',
+                  passVisible: 'invisible',
+                  nameVisible: 'invisible',
+                  alertVisible: 'alert-danger visible',
+                  message: 'err_06'
+                })
+                break;
+              default:
+              // code block
+            }
+          }
+        })
+
+    }
 
   }
 
@@ -184,6 +212,24 @@ class Register extends Component {
     this.setState({
       password: e.target.value
     });
+  }
+
+  hadlePasswordChangeConfirm(e) {
+    if (this.state.password !== e.target.value) {
+      this.setState({
+        passwordC:  e.target.value,
+        passVisibleC: 'visible',
+        messagep: 'messagep',
+        submit: false
+      });
+    } else {
+      this.setState({
+        passwordC:  e.target.value,
+        passVisibleC: 'invisible',
+        messagep: '',
+        submit: true
+      });
+    }
   }
 
   render() {
@@ -215,6 +261,9 @@ class Register extends Component {
                         <div className={`text-danger ${this.state.mailVisible}  mb-2`}><Translate content={`${this.state.message}`} /></div>
                         <Translate component="input" onChange={this.hadlePasswordChange} type="password" id="exampleInputPassword1" className="form-control " attributes={{ placeholder: "password" }} aria-describedby="emailHelp" required />
                         <div className={`text-danger ${this.state.passVisible}  mb-2`}><Translate content={`${this.state.message}`} /></div>
+                        <Translate component="input" onChange={this.hadlePasswordChangeConfirm} type="password" id="exampleInputPassword2" className="form-control " attributes={{ placeholder: "passwordC" }} aria-describedby="emailHelp" required />
+                        <div className={`text-danger ${this.state.passVisibleC}  mb-2`}><Translate content={`${this.state.messagep}`} /></div>
+
                         {/* <div className="d-flex mb-3">
                           <div className="form-check">
                             <input type="checkbox" className="form-check-input" id="exampleCheck1" />

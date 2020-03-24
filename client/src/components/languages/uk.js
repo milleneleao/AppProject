@@ -29,6 +29,7 @@ const uk = {
     btnLogin:"LOG IN",
     email_address:'E-mail',
     password:'Senha',
+    passwordC: "Repeat Password",
     /*Register page */
     textName:"Name",
     textAgree:"I agree to Terms of Service and Privacy Policy.",
