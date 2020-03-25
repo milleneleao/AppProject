@@ -13,10 +13,10 @@ cid     SERIAL PRIMARY KEY,
 uid      integer,
 kidsName VARCHAR(255),
 parentName VARCHAR(255),
-fromCountry VARCHAR(255)
-livingCountry VARCHAR(255)
+fromCountry VARCHAR(255),
+livingCountry VARCHAR(255),
 picture bytea,
-timezone VARCHAR(255)
+timezone VARCHAR(255),
 credit float,
  FOREIGN KEY (uid) REFERENCES users (uid)
 );
