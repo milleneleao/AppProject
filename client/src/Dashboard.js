@@ -71,7 +71,14 @@ class Dashboard extends React.Component {
       }
     });
   }
-
+  startNow(e) {
+    this.props.history.push({
+      pathname: '/Classroom',
+      state: {
+        uid: this.props.location.state.uid
+      }
+    });
+  }
 
   render() {
     const picture = {
@@ -120,7 +127,7 @@ class Dashboard extends React.Component {
                     </div>
              
                     <div className="col-3 m-auto pb-2">
-                      <button type="button" className="btn btn-outline-project-color-6 float-right">Start Now</button>
+                      <button type="button" className="btn btn-outline-project-color-6 float-right" onClick={() => this.startNow()}>Start Now</button>
                     </div>
                   </div>
                 </div>

@@ -11,6 +11,8 @@ import Calendar    from './Calendar';
 import AboutCourse from './AboutCourse';
 import PayPage     from './PayPage';
 import Dashboard from './Dashboard';
+import GameOne from './GameOne.jsx';
+
 import './scss/custom.scss';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
@@ -28,6 +30,7 @@ ReactDOM.render(
             <Route path="/calendar" component={Calendar} />
             <Route path="/aboutcourse" component={AboutCourse} />
             <Route path="/paypage" component={PayPage} />
+            <Route path="/classroom" component={GameOne} />
         </Switch>
     </BrowserRouter>
     , document.getElementById('root'));

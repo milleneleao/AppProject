@@ -14,7 +14,8 @@ counterpart.registerTranslations('br', br);
 class Header extends Component {
 
   state = {
-    lang: counterpart.getLocale()
+    lang: counterpart.getLocale(),
+    
   }
 
   onLangChange = (e) => {

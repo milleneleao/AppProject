@@ -30,3 +30,12 @@ data_course  VARCHAR(4000),
 );
 
 
+CREATE TABLE teachers (
+  uid SERIAL PRIMARY KEY,
+  teachername VARCHAR(255) UNIQUE,
+  tachermail VARCHAR(255),
+  teacherpassword VARCHAR(100),
+  date_created DATE,
+  last_login DATE
+);
+

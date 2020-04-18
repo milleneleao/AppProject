@@ -26,3 +26,33 @@ html {
     margin-left: 170px;
     margin-bottom: 20px;
 }
+.containerImg .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #6626FB;
+  color: white;
+  font-size: 16px;
+  padding: 12px 84px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.containerImg .transparent{
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  font-size: 25px;
+  background-color: aliceblue;
+  padding:10px;
+  opacity: 0.8;
+  border-radius: 5px;
+}
+
+.containerImg .btn:hover {
+  background-color: red;
+}

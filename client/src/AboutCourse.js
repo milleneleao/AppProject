@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import HeaderLogIn from './components/headerLogIn';
+import Login from './Login';
 import './css/aboutcourse.css';
+import Header from './components/header';
 import counterpart from 'counterpart';
 import Translate from 'react-translate-component';
 import en from './components/languages/en';
@@ -22,9 +24,13 @@ class AboutCourse extends Component {
             course: null,
             total: 0,
             message: "",
-            visible: false
+            visible: false,
+            setHeader: "",
+            disabled: false,
         }
     }
+    
+    
     handleClickBook(e) {
         if (this.state.total === 0) {
             this.setState({
@@ -57,10 +63,31 @@ class AboutCourse extends Component {
             total: 5
         });
     }
+
+    componentDidMount(){
+        var header = "";
+        var isDisabled;
+        if(!this.props.location.state){ //
+            header = <Header />;
+            isDisabled = true;
+        }
+        else{
+            header = <HeaderLogIn uid={this.props.location.state.uid} />;
+            isDisabled = false;
+        }
+        this.setState({
+            setHeader: header,
+            disabled: isDisabled
+
+        });
+    }
     render() {
+        
         return (
             <div>
-                <HeaderLogIn uid={this.props.location.state.uid} />
+                {//<HeaderLogIn uid={this.props.location.state.uid} />
+                }
+                {this.state.setHeader}
                 <div id="page-container">
                     <div id="content-wrap">
                         <div className="container">
@@ -73,7 +100,7 @@ class AboutCourse extends Component {
                                 <div className="col-3" style={{ backgroundColor: "#F0EFE8", margin: "10px" }}>
                                     <Translate content="txtForBalanceBox1" component="h3" className="text-center mx-auto " style={{ marginTop: "90px" }} />
                                     <p className="text-center mx-auto display-4" style={{ marginTop: "20px" }}> {this.state.total} CAD</p>
-                                    <button type="button" className="btn btn-secondary" style={{ marginLeft: "95px" }} onClick={() => this.handleClickBook()}> <Translate content="btnBook" /></button>
+                                    <button type="button" disabled={this.state.disabled} className="btn btn-secondary" style={{ marginLeft: "95px" }} onClick={() => this.handleClickBook()}> <Translate content="btnBook" /></button>
                                     <div className={`text-danger text-center ${this.state.visible}  my-2`}><Translate content={`${this.state.message}`} /></div>
                                 </div>
                             </div>
@@ -87,7 +114,7 @@ class AboutCourse extends Component {
                                                 <Translate content="txtTrialDesc" component="p" className="text mx-auto" />
                                             </div>
                                             <div className="col-6">
-                                                <button type="button" className="btn btn-secondary" style={{ marginTop: "18px", marginLeft: "440px" }} onClick={() => this.handleClickTrial()}><Translate content="btnSelect" /></button>
+                                                <button type="button" disabled={this.state.disabled} className="btn btn-secondary" style={{ marginTop: "18px", marginLeft: "440px" }} onClick={() => this.handleClickTrial()}><Translate content="btnSelect" /></button>
                                             </div>
                                         </div>
                                     </div>
@@ -98,7 +125,7 @@ class AboutCourse extends Component {
                                                 <Translate content="txtCourseDesc" component="p" className="text mx-auto" />
                                             </div>
                                             <div className="col-6">
-                                                <button type="button" className="btn btn-secondary" style={{ marginTop: "18px", marginLeft: "440px" }} onClick={() => this.handleClickFull()}><Translate content="btnSelect" /></button>
+                                                <button type="button" disabled={this.state.disabled} className="btn btn-secondary" style={{ marginTop: "18px", marginLeft: "440px" }} onClick={() => this.handleClickFull()}><Translate content="btnSelect" /></button>
                                             </div>
                                         </div>
                                     </div>

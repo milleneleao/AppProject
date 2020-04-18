@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import Header from './components/header';
 import Footer from './components/footer';
 import counterpart from 'counterpart';
@@ -6,7 +7,7 @@ import Translate from 'react-translate-component';
 import en from './components/languages/en';
 import uk from './components/languages/uk';
 import br from './components/languages/br';
-
+import './css/welcome.css';
 
 counterpart.registerTranslations('en', en);
 counterpart.registerTranslations('uk', uk);
@@ -72,7 +73,11 @@ class Welcome extends Component {
             </div>
             <div className="row">
               <div className="col col-lg-12">
+                <div class="containerImg">
                 <img src="./images/canva.jpg" className="img-fluid mt-5" alt="banner2" />
+                <div class="transparent"><p>Get more information about the course</p></div>
+                <Link to="/aboutcourse"> <button class="btn">Click Here</button></Link>
+                </div>
               </div>
             </div>
             <Footer />
