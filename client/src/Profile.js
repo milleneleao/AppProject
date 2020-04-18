@@ -217,7 +217,7 @@ class Profile extends React.Component {
                 <div className="py-3"><h5><Translate content="textTitleBasic" /></h5></div>
 
                 <div className="form-group row">
-                  <label htmlFor="kidsName" className="col-sm-2 col-form-label"><Translate content="textKidsName" /></label>
+                  <label htmlFor="kidsName"  className="col-sm-2 col-form-label"><Translate content="textKidsName" /></label>
                   <div className="col-sm-10">
                     <input type="text" className="form-control" id="kidsName" onChange={this.changeHandlerKidsName} />
                     <div className={`pt-1 text-danger ${this.state.visibleKidsAlert}`} ><Translate content="err_01" /></div>

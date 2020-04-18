@@ -75,34 +75,8 @@ router.post('/register', function (req, res, next) {
 });
 
 router.post('/credit', (req, res, next) => {
-  const {uid, valor} = req.body.userData;
-//console.log(uid,valor);
-//console.log( req.body.userData);
-  const handler = (err, result) => {
-    if (!err) {
-      res.json({
-        success: true,
-        message: ''
-      });
-    } else {
-      console.log(err);
-      res.json({
-        success: false,
-        message: '',
-        code: err.code,
-        error: err
-      });
-
-    }
-  }
-  db.updateCredit([uid,valor], handler);
-
-  
-  
-});
-
-router.post('/course', (req, res, next) => {
-  const {uid, cco,data_course} = req.body.userData;
+  const { uid, valor } = req.body.userData;
+  //console.log(uid,valor);
   //console.log( req.body.userData);
   const handler = (err, result) => {
     if (!err) {
@@ -121,18 +95,47 @@ router.post('/course', (req, res, next) => {
 
     }
   }
-  db.insertCourse([uid,cco,data_course], handler);
+  db.updateCredit([uid, valor], handler);
+
+
+
+});
+
+router.post('/course', (req, res, next) => {
+  const { uid, cco, data_course } = req.body.userData;
+  //console.log( req.body.userData);
+  const handler = (err, result) => {
+    if (!err) {
+      res.json({
+        success: true,
+        message: ''
+      });
+    } else {
+      console.log(err);
+      res.json({
+        success: false,
+        message: '',
+        code: err.code,
+        error: err
+      });
+
+    }
+  }
+  db.insertCourse([uid, cco, data_course], handler);
 });
 
 router.get('/image/:id', (req, res, next) => {
-//  console.log(req.params.id);
+  //  console.log(req.params.id);
   const handler = (err, result) => {
     if (!err) {
-      var base64data = Buffer.from(result.rows[0].picture, 'binary').toString();
+      var base64data = null
+      if (result.rowCount > 0 && result.rows[0].picture) {
+        base64data = Buffer.from(result.rows[0].picture, 'binary').toString();
+      }
       res.json({
         success: true,
         message: '',
-        data:  base64data
+        data: base64data 
       });
     } else {
       console.log(err);
@@ -155,7 +158,7 @@ router.get('/credit/:id', (req, res, next) => {
       res.json({
         success: true,
         message: '',
-        data:  result.rows[0].credit
+        data: result.rows[0].credit
       });
     } else {
       console.log(err);
@@ -175,14 +178,26 @@ router.get('/course/:id', (req, res, next) => {
   //console.log(req.params.id);
   const handler = (err, result) => {
     if (!err) {
-      var data= null;
-      if (result.rowCount > 0) data =  result.rows[0].data_course
-      //console.log(result.rowCount);
-      //console.log(data);
+      var data = null;
+      if (result.rowCount > 0) data = `[`;
+      let id = 0;
+      for (var i = 0; i < result.rowCount; i++) {
+        aux = JSON.parse(result.rows[i].data_course);
+        for (var k in aux) {
+          var start = new Date(aux[k].start);
+          var end = new Date(aux[k].end);
+          if (start > Date.now()) {
+            data += `{"id":"${id}","start":"${start}","end":"${end}"}`;
+            id++;
+          }
+        }
+      }
+      if (data) data += `]`;
+      console.log(data);
       res.json({
         success: true,
         message: '',
-        data:  data
+        data: data
       });
     } else {
       console.log(err);
@@ -198,37 +213,107 @@ router.get('/course/:id', (req, res, next) => {
   db.findData_course([req.params.id], handler);
 });
 
+router.get('/course_teacher', (req, res, next) => {
+  //console.log(req.params.id);
+  const handler = (err, result) => {
+    if (!err) {
+      var data = null;
+      if (result.rowCount > 0) data = `[`;
+      let id = 0;
+      for (var i = 0; i < result.rowCount; i++) {
+        aux = JSON.parse(result.rows[i].data_course);
+        for (var k in aux) {
+          var start = new Date(aux[k].start);
+          var end = new Date(aux[k].end);
+          var student = result.rows[i].kidsname;
+          var uid  = result.rows[i].uid;
+          if (start > Date.now()) {
+            data += `{"id":"${k}","start":"${start}","end":"${end}","student":"${student}","uid":"${uid}"}`;
+            id++;
+          }
+        }
+      }
+      if (data) data += `]`;
+      console.log(data);
+      res.json({
+        success: true,
+        message: '',
+        data: data
+      });
+    } else {
+      console.log(err);
+      res.json({
+        success: false,
+        message: '',
+        code: err.code,
+        error: err
+      });
+
+    }
+  }
+  db.findData_courses_Teacher([], handler);
+});
+
 
 router.get('/dashboard/:id', (req, res, next) => {
 
-      const handler = (err, result) => {
-        if (!err) {
-          var base64data = Buffer.from(result.rows[0].picture, 'binary').toString();
-          var kidsName   = result.rows[0].kidsname;
-          var credit     = result.rows[0].credit;
-          res.json({
-            success: true,
-            message: '',
-            image:  base64data,
-            kidsName: kidsName,
-            credit: credit,
-            data_course: ""
-          });
-        } else {
-          console.log(err);
-          res.json({
-            success: false,
-            message: '',
-            code: err.code,
-            error: err
-          });
-    
-        }
-      }
-      db.findData([req.params.id], handler);
+  const handler = (err, result) => {
+    if (!err) {
+      var base64data = Buffer.from(result.rows[0].picture, 'binary').toString();
+      var kidsName = result.rows[0].kidsname;
+      var credit = result.rows[0].credit;
+      res.json({
+        success: true,
+        message: '',
+        image: base64data,
+        kidsName: kidsName,
+        credit: credit, 
+        data_course: ""
+      });
+    } else {
+      console.log(err);
+      res.json({
+        success: false,
+        message: '',
+        code: err.code,
+        error: err
+      });
+
+    }
+  }
+  db.findData([req.params.id], handler);
 
 
 });
+
+router.get('/username', (req, res, next) => {
+
+  const handler = (err, result) => {
+    if (!err) {
+      console.log(result.rows[0].username);
+      var username = result.rows[0].username;
+   
+      res.json({
+        success: true,
+        message: '',
+        username: username
+      });
+    } else {
+      console.log(err);
+      res.json({
+        success: false,
+        message: '',
+        code: err.code,
+        error: err
+      });
+
+    }
+  }
+  db.findClient_uid([], handler);
+
+
+});
+
 
 
 

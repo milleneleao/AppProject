@@ -21,6 +21,8 @@ credit float,
  FOREIGN KEY (uid) REFERENCES users (uid)
 );
 
+
+
 CREATE TABLE client_course (
 ccid         SERIAL PRIMARY KEY,
 uid          integer,
@@ -29,6 +31,7 @@ data_course  VARCHAR(4000),
  FOREIGN KEY (uid) REFERENCES users (uid)
 );
 
+<<<<<<< HEAD
 
 CREATE TABLE teachers (
   uid SERIAL PRIMARY KEY,
@@ -39,3 +42,9 @@ CREATE TABLE teachers (
   last_login DATE
 );
 
+=======
+ALTER TABLE users ADD COLUMN client BOOLEAN NOT NULL DEFAULT true;
+INSERT INTO public.users(username, usermail, userpassword, date_created, last_login, client)
+	VALUES ('professor', 'professor@school.ca', '$2b$13$a04kc0y0QKUzbyIwUcqTe.gAFAiIIurqh5l8lxE0vHj864NjckAn6',
+			'2020-03-24', null,false);
+>>>>>>> d1e4c233f0ee3f59818cb2ab29a66c128acfc168

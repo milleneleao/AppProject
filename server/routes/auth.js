@@ -50,19 +50,26 @@ router.post('/login', (req, res, next) => {
         }
 
         var showProfile = false;
+        if (!result.rows[0].client){ showProfile = true;}
         const handlerClient = (errc, result1) => {
-          console.log(!errc);
-          console.log(result1.rowCount > 0);
-          if (!errc && result1.rowCount > 0) {
+
+
+          if (!errc && result1.rowCount > 0 && result.rows[0].client) {
             showProfile = true;
           }
-                console.log(showProfile);
+
+          
+          
+        console.log( result.rows[0].client);
+        console.log(showProfile);
+
         let generatedToken = jwt.sign(tokenData, config.JWT_KEY, { expiresIn: '1m' });
           res.json({
             success: true,
             token: generatedToken,
             name:  result.rows[0].username,
             uid: result.rows[0].uid,
+            client: result.rows[0].client,
             showProfile: showProfile,
           });
           

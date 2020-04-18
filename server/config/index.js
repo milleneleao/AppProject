@@ -7,7 +7,7 @@ config.USER =  'postgres';
 config.HOST = 'localhost';
 config.DB   = 'AppProject';
 config.PSW  = 'Test123!';//Olha
-//config.PSW  = 'masterkey';//Millene
+//config.PSW  = 'masterkey';//MIllene
 config.PORT = 5432;
 
 module.exports = config; 

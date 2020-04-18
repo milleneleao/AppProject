@@ -48,6 +48,7 @@ class Dashboard extends React.Component {
     if (!dataCourse.data) {
       aux = []
     }else{
+      console.log(dataCourse.data);
       aux = JSON.parse(dataCourse.data)
     }
 
@@ -71,14 +72,26 @@ class Dashboard extends React.Component {
       }
     });
   }
-  startNow(e) {
+
+  async startCourse(e) {
+    let url = `http://localhost:3001/clients/username`;
+    let response = await fetch(url);
+    let data = await response.json(); // read response body and parse as JSON
+    let nameTeacher = data.username;
+
     this.props.history.push({
-      pathname: '/Classroom',
+      pathname: '/classRoom',
       state: {
-        uid: this.props.location.state.uid
+        uid: this.props.location.state.uid,
+        client: this.state.kidName,
+        color:"text-project-color-6",
+        alignment:"text-right",
+        name_receiver:nameTeacher,
+        img: './images/mom-icon.png'
       }
     });
   }
+
 
   render() {
     const picture = {
@@ -117,17 +130,20 @@ class Dashboard extends React.Component {
 
           <div className="row border mt-4">
             <div className="col-12  text-center h2"><Translate content="textMyCourses" /></div>
-            {this.state.data.map((item, index) => {
+            { 
+              this.state.data.map((item, index) => { 
+                
               return (
+            
                 <div className="col-12 h2 border-bottom border-warning" key={item.id}>
                   <div className="row">
                   
                     <div className="col-9 m-auto float-left">
-                      <h5>{moment(item.start).format("MMMM, D YYYY: h:mm:ss a")} - {moment(item.end).format("h:mm:ss a")} </h5>
+                      <h5>{moment(item.start).format("MMMM, D YYYY h:mm:ss a")} - {moment(item.end).format("h:mm:ss a")} </h5>
                     </div>
              
                     <div className="col-3 m-auto pb-2">
-                      <button type="button" className="btn btn-outline-project-color-6 float-right" onClick={() => this.startNow()}>Start Now</button>
+                      <button type="button" className="btn btn-outline-project-color-6 float-right"  onClick={() => this.startCourse()}>Start Now</button>
                     </div>
                   </div>
                 </div>
@@ -159,7 +175,7 @@ class Dashboard extends React.Component {
                   <div className="card border-0">
                     <img className="card-img-top mx-auto" src="./images/dis_1.jpg" alt="Card image cap" style={{ paddingLeft: "40px" }} />
                     <div className="card-body">
-                      <h5 className="card-title">Hello ABC - English - Step 02</h5>
+                      <h5 className="card-title text-center">Hello ABC - English - Step 02</h5>
                       <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                       <div className="text-center">
                         <button type="button" className="btn btn-outline-project-color-6">Coming Soon</button>
@@ -168,10 +184,10 @@ class Dashboard extends React.Component {
                   </div>
                 </div>
                 <div className="col-4 border-top p-2 pt-4">
-                  <div className="card border-0">
-                    <img className="card-img-top" src="./images/dis_1.jpg" alt="Card image cap" style={{ paddingLeft: "40px" }} />
+                  <div className="card border-0 ">
+                    <img className="card-img-top mx-auto" src="./images/dis_1.jpg" alt="Card image cap" style={{ paddingLeft: "40px" }} />
                     <div className="card-body">
-                      <h5 className="card-title">Hello ABC - English - Step 03</h5>
+                      <h5 className="card-title text-center">Hello ABC - English - Step 03</h5>
                       <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                       <div className="text-center">
                         <button type="button" className="btn btn-outline-project-color-6">Coming Soon</button>
