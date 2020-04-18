@@ -12,7 +12,7 @@ import AboutCourse from './AboutCourse';
 import PayPage     from './PayPage';
 import Dashboard from './Dashboard';
 import ClassroomPage from './ClassroomPage';
-import ClassRoom from './ClassRoom';
+import ClassRoom from './classRoom';
 import DashboardTeacher from './DashboardTeacher';
 import './scss/custom.scss';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
