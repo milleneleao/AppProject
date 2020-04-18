@@ -22,9 +22,11 @@ class AboutCourse extends Component {
             course: null,
             total: 0,
             message: "",
-            visible: false
+            visible: false,
+            isdisable: true
         }
     }
+
     handleClickBook(e) {
         if (this.state.total === 0) {
             this.setState({
@@ -98,7 +100,7 @@ class AboutCourse extends Component {
                                                 <Translate content="txtCourseDesc" component="p" className="text mx-auto" />
                                             </div>
                                             <div className="col-6">
-                                                <button type="button" className="btn btn-secondary" style={{ marginTop: "18px", marginLeft: "440px" }} onClick={() => this.handleClickFull()}><Translate content="btnSelect" /></button>
+                                                <button type="button" disabled={this.state.isdisable} className="btn btn-secondary" style={{ marginTop: "18px", marginLeft: "440px" }} onClick={() => this.handleClickFull()}><Translate content="btnSelect" /></button>
                                             </div>
                                         </div>
                                     </div>

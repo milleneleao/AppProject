@@ -105,12 +105,22 @@ class Login extends Component {
           })
           if (responseJson.showProfile) {
             //If there is Client Regiter call Dashboard Page
-            this.props.history.push({
-              pathname: '/Dashboard',
-              state: {
-                uid: responseJson.uid 
-              }
-            });
+            if (responseJson.client){
+              this.props.history.push({
+                pathname: '/Dashboard',
+                state: {
+                  uid: responseJson.uid 
+                }
+              });
+            } else {
+              this.props.history.push({
+                pathname: '/DashboardTeacher',
+                state: {
+                  uid: responseJson.uid 
+                }
+              });
+            }
+
           } else {
             //else call Profile page
             var firstName = this.state.userName.replace(/ .*/, '');

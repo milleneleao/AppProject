@@ -12,3 +12,9 @@ npm install pg
 
 (client)
 npm install react-facebook-login react-google-login
+
+(client)
+npm install prop-types
+
+(server)
+npm install ws

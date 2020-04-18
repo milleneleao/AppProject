@@ -11,6 +11,8 @@ import Calendar    from './Calendar';
 import AboutCourse from './AboutCourse';
 import PayPage     from './PayPage';
 import Dashboard from './Dashboard';
+import DashboardTeacher from './DashboardTeacher';
+import ClassRoom from './classRoom';
 import './scss/custom.scss';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
@@ -28,6 +30,8 @@ ReactDOM.render(
             <Route path="/calendar" component={Calendar} />
             <Route path="/aboutcourse" component={AboutCourse} />
             <Route path="/paypage" component={PayPage} />
+            <Route path="/DashboardTeacher" component={DashboardTeacher} />
+            <Route path="/classRoom" component={ClassRoom} />
         </Switch>
     </BrowserRouter>
     , document.getElementById('root'));

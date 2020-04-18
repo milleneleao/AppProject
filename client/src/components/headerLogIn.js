@@ -21,7 +21,7 @@ class HeaderLogIn extends Component {
     let response = await fetch(url);
     let commits = await response.json(); // read response body and parse as JSON
     var buf = commits.data;
-    if (buf === "null"){
+    if (buf === "null" || buf === null){
       buf = "./images/mom-icon.png"
     }
     this.setState({
