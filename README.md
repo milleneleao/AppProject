@@ -13,6 +13,7 @@ npm install pg
 (client)
 npm install react-facebook-login react-google-login
 
+
 Part 2
 Upload pgAdmin
 version pgAdmin 4 v4.18 (released Feb. 6, 2020)
@@ -28,3 +29,10 @@ run npm install --save react-big-calendar
 
 (server)
 npm install formidable
+
+//chat
+(client)
+npm install prop-types
+
+(server)
+npm install ws

@@ -61,6 +61,16 @@ module.exports = {
       handler(err, result);
     })
   },
+  findData_courses_Teacher: (values,handler) => {
+    pool.query(`SELECT cc.*, kidsname ,client.uid FROM client_course cc, client where client.uid = cc.uid`, values, (err, result) => {
+      handler(err, result);
+    })
+  },
+  findClient_uid: (values, handler) => {
+    pool.query(`SELECT * FROM users WHERE client = false`, values, (err, result) => {
+      handler(err, result);
+    })
+  },
   updateCredit: (values, handler) => {
     pool.query(`update client set credit = $2 WHERE uid = $1`, values, (err, result) => {
       handler(err, result);

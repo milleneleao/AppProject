@@ -12,6 +12,7 @@
     "country-selector": "^1.1.1",
     "jquery": "^3.4.1",
     "node-sass": "^4.13.1",
+    "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-big-calendar": "^0.24.4",
     "react-bootstrap": "^1.0.0-beta.16",
