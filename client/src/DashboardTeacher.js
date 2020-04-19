@@ -83,7 +83,6 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className="container-fluid" >
-
         <Header uid={this.props.location.state.uid} />
         <div className="container mt-3">
           <div className="row border">

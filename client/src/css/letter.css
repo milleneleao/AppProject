@@ -1,3 +1,8 @@
 #animation{
+    margin: 60px;
     transition: width 2s, height 4s;
+}
+
+#animation{
+    scale: 20px;
 }

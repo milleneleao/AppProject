@@ -1,18 +1,31 @@
-import React, { Component } from 'react';
 import UIfx from 'uifx';
-import mp3File from './sounds/a.mp3';
+import React, { Component } from 'react';
+import '../css/letter.css';
+import mp3File from './sounds/a.mp3'
 
+
+const beep = new UIfx(
+    mp3File,
+    {
+      volume: 0.4, // number between 0.0 ~ 1.0
+      throttleMs: 100
+    }
+  )
 
 
 
 class Letter extends Component {
-    
     render() {
-        const sound = new UIFx({asset: mp3File});
         return(
-            <div>
-              <img className="mx-auto card-img-top img-fluid p-1" id="animation" onClick={sound.play} src="../Letterimg/a.png" alt="upper case letter" />
-              <img className="mx-auto card-img-top img-fluid p-1" id="animation" onClick={sound.play} src="../Letterimg/a-lower-case.png" alt="upper case letter" />
+            <div className="container">
+                <div className="row">
+                <div className="col-6">
+                    <img  id="animation" onClick={beep.play()}  src="./Cardimg/AA.png" alt="upper case letter" />
+                </div>
+                <div className="col-6">
+                    <img  id="animation" onClick={beep.play()}  src="./Cardimg/a.png" alt="upper case letter" />
+                </div>
+                </div>
             </div>
         );
     }

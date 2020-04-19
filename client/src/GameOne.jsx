@@ -81,8 +81,6 @@ const resizeBoard = () => {
 };
 return (
    <div>
-      <h2>Card memory game</h2>
-
       <Board
       dimension = {dimension}
       cards={cards}
@@ -91,7 +89,6 @@ return (
       disabled = {disabled}
       solved = {solved}
       />
-      
    </div>
    
   );

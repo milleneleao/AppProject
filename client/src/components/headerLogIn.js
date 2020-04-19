@@ -44,7 +44,7 @@ class HeaderLogIn extends Component {
         <div className="col-8">
           <div className="btn-group  float-right">
             <button type="button" className="btn btn-outline-color-2 " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img className="rounded-circle float-rigth img-thumbnail" src={`${this.state.path}`} alt="Logo" style={{ width: "60px", height: "auto" }}  />
+              <img className="rounded-circle float-rigth img-thumbnail" src={`${this.state.path}`} alt="Logo" style={{ width: "40px", height: "auto" }}  />
             </button>
             <div className="dropdown-menu">
            {   // <a className="dropdown-item" href="/Profile">Edit Profile</a>

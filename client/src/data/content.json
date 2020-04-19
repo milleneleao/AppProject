@@ -1,0 +1,23 @@
+[
+    {
+      "id": "0",
+      "name": "Apple",
+      "photo": "./Cardimg/apple.png"
+    },
+    {
+        "id": "1",
+        "name": "Alligator",
+        "photo": "./Cardimg/alligator.png"
+    },
+      {
+        "id": "2",
+        "name": "Ant",
+        "photo": "./Cardimg/ant.png"
+      },
+      {
+        "id": "4",
+        "name": "Airplane",
+        "photo": "./Cardimg/airplane.png"
+      }
+
+]
