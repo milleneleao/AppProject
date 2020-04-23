@@ -28,7 +28,7 @@ class Dashboard extends React.Component {
   }
 
   async loadData() {
-     
+
     let url = `http://localhost:3001/clients/username`;
     let response = await fetch(url);
     let data = await response.json(); // read response body and parse as JSON
@@ -83,6 +83,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className="container-fluid" >
+
         <Header uid={this.props.location.state.uid} />
         <div className="container mt-3">
           <div className="row border">
@@ -105,7 +106,7 @@ class Dashboard extends React.Component {
                 </div>
 
                 <div className="col-4 m-auto pb-2">
-                  
+
                 </div>
 
               </div>

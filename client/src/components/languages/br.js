@@ -6,7 +6,7 @@ const br = {
   about: 'Sobre',
   aboutp: 'Sobre o Projeto',
   /*Welcome Page */
-  header: 'Sobre VIP KId',
+  header: 'Sobre Fox Kid',
   aboutT: 'Existem muitas variacoes de passagens da Lorem Ipsum disponiveis,mas a maioria sofreu alterações de alguma forma, por humor injetado ou palavras aleatórias que não parecem nem um pouco críveis. Se você vai usar uma passagem de Lorem Ipsum, precisa ter certeza de que não há nada embaraçoso escondido no meio do texto. Todos os geradores Lorem Ipsum na Internet tendem a repetir blocos predefinidos conforme necessário, tornando este o primeiro gerador verdadeiro na Internet. Ele usa um dicionário de mais de 200 palavras latinas, combinado com algumas estruturas de frases modelo, para gerar Lorem Ipsum, que parece razoável. O Lorem Ipsum gerado é, portanto, sempre livre de repetição, humor injetado ou palavras não características etc.',
   headerTwo: 'Como Funciona?',
   headerSix: '1. Escolha um curso?',

@@ -40,7 +40,11 @@ npm install ws
 //Game 2
 (client)
 npm i lodash-es
+
 npm i react-spring
+
 npm i lodash-move
+
 npm i react-with-gesture
+
 npm i uifx

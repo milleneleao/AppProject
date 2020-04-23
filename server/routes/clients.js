@@ -228,12 +228,16 @@ router.get('/course_teacher', (req, res, next) => {
           var student = result.rows[i].kidsname;
           var uid  = result.rows[i].uid;
           if (start > Date.now()) {
-            data += `{"id":"${k}","start":"${start}","end":"${end}","student":"${student}","uid":"${uid}"}`;
+            data += `{"id":"${k}","start":"${start}","end":"${end}","student":"${student}","uid":"${uid}"},`;
             id++;
           }
         }
       }
-      if (data) data += `]`;
+      if (data){
+        console.log(data);
+        data = data.substring(0, data.length - 1);
+        data += `]`;
+      } 
       console.log(data);
       res.json({
         success: true,
