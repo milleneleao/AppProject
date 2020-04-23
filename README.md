@@ -2,21 +2,27 @@
 This is an online school for young learners. The project includes: multi language website, login and sign up pages about the school, about the course, calendar, virtual classroom with chat and games built with React hooks.
 
 Initial page
+
 ![alt text](https://github.com/milleneleao/AppProject/blob/master/client/public/p1.PNG)
 
 Profile page
+
 ![alt text](https://github.com/milleneleao/AppProject/blob/master/client/public/p4.PNG)
 
 About the course page
+  
 ![alt text](https://github.com/milleneleao/AppProject/blob/master/client/public/p5.PNG)
 
 Calendar
+
 ![alt text](https://github.com/milleneleao/AppProject/blob/master/client/public/p7.PNG)
 
 Payment
+
 ![alt text](https://github.com/milleneleao/AppProject/blob/master/client/public/p8.PNG)
 
 Classroom and chat
+
 ![alt text](https://github.com/milleneleao/AppProject/blob/master/client/public/p9.PNG)
 ![alt text](https://github.com/milleneleao/AppProject/blob/master/client/public/p11.PNG)
 
