@@ -1,7 +1,13 @@
-App project - Internet Application And Web Development
+<h1>App project - Internet Application And Web Development</h1>
+*This is a online school for young learners. The project includes: pages about the school, about the course, calendar, virtual classroom with chat and games bouilt with React hooks.*
 
+
+
+<h3>Step by step instruction</h3>
+
+Create folder "Client" and "Server"
 npm install -gd express-generator
-Create folder "Client" and Server 
+
 
 (Server folder)
 npm install express 
