@@ -1,56 +1,67 @@
 <h1>App project - Internet Application And Web Development</h1>
-This is an online school for young learners. The project includes: multi language website, login ans sign up pages about the school, about the course, calendar, virtual classroom with chat and games bouilt with React hooks.
+This is an online school for young learners. The project includes: multi language website, login and sign up pages about the school, about the course, calendar, virtual classroom with chat and games built with React hooks.
 
-url(./client/public/p1.png)
+Initial page
+![alt text](https://github.com/milleneleao/AppProject/blob/master/client/public/p1.PNG)
+
+Profile page
+![alt text](https://github.com/milleneleao/AppProject/blob/master/client/public/p4.PNG)
+
+About the course page
+![alt text](https://github.com/milleneleao/AppProject/blob/master/client/public/p5.PNG)
+
+Calendar
+![alt text](https://github.com/milleneleao/AppProject/blob/master/client/public/p7.PNG)
+
+Payment
+![alt text](https://github.com/milleneleao/AppProject/blob/master/client/public/p8.PNG)
+
+Classroom and chat
+![alt text](https://github.com/milleneleao/AppProject/blob/master/client/public/p9.PNG)
+![alt text](https://github.com/milleneleao/AppProject/blob/master/client/public/p11.PNG)
 
 
 <h3>Step by step instruction</h3>
 
-Create folder "Client" and "Server"
-npm install -gd express-generator
+1. Create folder "Client" and "Server"
+Run the command: npm install -gd express-generator
 
-
-(Server folder)
+2. In Server folder run the following commands:
 npm install express 
 run command "express" in server folder
 npm install jsonwebtoken --save 
 npm install pg
 
 
-(client)
+3. In client folder run this command:
 npm install react-facebook-login react-google-login
 
 
 Part 2
-Upload pgAdmin
-version pgAdmin 4 v4.18 (released Feb. 6, 2020)
+4. Upload pgAdmin version pgAdmin 4 v4.18 (released Feb. 6, 2020)
 
-After the installation go to /server/config/index.js
+5. After the installation go to /server/config/index.js
 add your password
 
-Create new tables in pgAdmin. /server/db/schema.sql
+6. Create new tables in pgAdmin. /server/db/schema.sql
 
-(client)
+7. In client folder run these commands for the calendar and profile page
 run npm install react-select-country-list --save
 run npm install --save react-big-calendar
 
-(server)
+8. In server folder run this command
 npm install formidable
 
-//chat
-(client)
+9. In client folder run this command for the chat
 npm install prop-types
 
-(server)
+10. In server folder install webSocket library
 npm install ws
 
-//Game 2
-(client)
-npm i lodash-es
-
-npm i react-spring
-
-npm i lodash-move
-
-npm i react-with-gesture
-npm i uifx
+11. For the second game use animations
+Run the following commands in client folder:
+npm i lodash-es</br>
+npm i react-spring</br>
+npm i lodash-move</br>
+npm i react-with-gesture</br>
+npm i uifx</br>
